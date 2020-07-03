@@ -41,7 +41,7 @@ const RegisterPage = (props) => {
 
   return (
     <>
-      <HeaderButton icon="back" text="Retour" />
+      <HeaderButton icon="back" text="Retour" navigation="login" />
       <h1>Inscription</h1>
       <form onSubmit={handleSubmit}>
         <Field

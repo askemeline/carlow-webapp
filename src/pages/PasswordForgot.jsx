@@ -1,7 +1,19 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
+import HeaderButton from "../components/forms/HeaderButton.jsx";
+
+const Title = styled.p`
+  color: #273539;
+  font-size: 18px;
+`;
+
+const Text = styled.p`
+  color: #273539;
+  font-size: 16px;
+`;
 
 const PasswordForgot = () => {
   const [email, setEmail] = useState({
@@ -14,13 +26,21 @@ const PasswordForgot = () => {
     const { name, value } = currentTarget;
     setEmail({ ...email });
   };
+
   return (
     <>
-      <h1>Mot de passe oublié</h1>
+      <HeaderButton icon="back" text="Retour" navigation="login" />
+
       <form>
+        <div>
+          <Title>Mot de passe oublié ?</Title>
+          <Text>
+            Entrer votre adresse mail et réinitialiser votre mot de passe
+          </Text>
+        </div>
         <Field
           name="email"
-          placeholder="Email"
+          placeholder="E-mail"
           error={errors.email}
           onChange={handleChange}
         />
