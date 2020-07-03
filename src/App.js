@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 
 import "./App.css";
 import RegisterPage from "./pages/RegisterPage.jsx";
@@ -14,6 +20,9 @@ function App() {
         <Route exact path="/register" component={RegisterPage} />
         <Route exact path="/passwordforgot" component={PasswordForgot} />
       </Switch>
+      <Route exact path="/">
+        <Redirect to="/login" />
+      </Route>
     </div>
   );
 }
