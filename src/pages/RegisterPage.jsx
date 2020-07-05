@@ -6,6 +6,8 @@ import HeaderButton from "../components/forms/HeaderButton.jsx";
 // import axios from "axios";
 import { Link } from "react-router-dom";
 
+import ApiService from '../services/ApiService.js';
+
 const RegisterPage = (props) => {
   const [user, setUser] = useState({
     firstName: "",
@@ -28,7 +30,7 @@ const RegisterPage = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      //TODO: register user on api
+      ApiService.registerUser(user)
       setErrors({});
     } catch (error) {
       console.log(error.response);
