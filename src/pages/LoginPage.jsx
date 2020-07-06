@@ -4,12 +4,19 @@ import styled from "styled-components";
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
+<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
+=======
+import BackgroundSemicircle from '../components/forms/BackgroundSemicircle.jsx';
+import Title from '../components/forms/Title.jsx';
+
+>>>>>>> added style, title component and background component, and started css with dark theme
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  color: #fff;
 `;
 
 const LoginPage = (props) => {
@@ -46,7 +53,10 @@ const LoginPage = (props) => {
 
   return (
     <>
-      <h1>Se connecter</h1>
+    
+    <BackgroundSemicircle text="" />
+    <Title text="Se connecter"/>
+      
       <form onSubmit={handleSubmit}>
         <Field
           name="email"

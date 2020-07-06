@@ -5,3 +5,11 @@
 :focus {
   outline: 0;
   }
+
+  body.dark{
+    background-color: #000;
+  }
+
+  body.white{
+    background-color: #fff;
+  }

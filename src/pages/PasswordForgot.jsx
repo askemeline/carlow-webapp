@@ -6,12 +6,12 @@ import Button from "../components/forms/Button.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 
 const Title = styled.p`
-  color: #273539;
+  color: #fff;
   font-size: 18px;
 `;
 
 const Text = styled.p`
-  color: #273539;
+  color: #fff;
   font-size: 16px;
 `;
 
