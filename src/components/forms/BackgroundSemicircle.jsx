@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
-const Text = styled(Link)`
+
+const Text = styled.text`
   background-color: #707070;
   margin: -20px -20px 0 -20px;
   height: 86px;
@@ -13,9 +13,9 @@ const Text = styled(Link)`
   opacity: 0.86;
 `;
 
-const BackgroundColor = styled(Link)`
-background-color: #707070;
-`
+const BackgroundColor = styled.text`
+  background-color: #707070;
+`;
 
 const BackgroundSemicircle = ({ text }) => {
   return <Text style={{ color: BackgroundColor }}>{text}</Text>;
