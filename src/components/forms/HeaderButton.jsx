@@ -12,15 +12,17 @@ const Container = styled.div`
 const Text = styled(Link)`
   margin-left: 8px;
   text-decoration: none;
-  color: #1f292c;
+  color: #fff;
 `;
 
 const HeaderButton = ({ text, icon = "", navigation }) => {
   return (
-    <Container>
-      {icon === "back" ? <FaChevronLeft /> : <FaTimes />}
-      <Text to={`${navigation}`}>{text}</Text>
-    </Container>
+    <div style={{color: 'white'}}>
+      <Container>
+        {icon === "back" ? <FaChevronLeft /> : <FaTimes />}
+        <Text to={`${navigation}`}>{text}</Text>
+      </Container>
+    </div>
   );
 };
 

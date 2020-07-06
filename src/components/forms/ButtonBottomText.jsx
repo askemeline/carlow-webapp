@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Text = styled(Link)`
   text-decoration: none;
-  color: #1f292c;
+  color: #fff;
   font-size: 15px;
 `;
 
