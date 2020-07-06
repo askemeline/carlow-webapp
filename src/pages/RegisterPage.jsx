@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
-// import axios from "axios";
-import { Link } from "react-router-dom";
+import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+`;
 
 const RegisterPage = (props) => {
   const [user, setUser] = useState({
@@ -14,6 +20,7 @@ const RegisterPage = (props) => {
     password: "",
     passwordConfirm: "",
   });
+
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -21,10 +28,12 @@ const RegisterPage = (props) => {
     password: "",
     passwordConfirm: "",
   });
-  const handleChange = ({ currentTarget }) => {
-    const { name, value } = currentTarget;
-    setUser({ ...user, [name]: value });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser({ [name]: value });
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -47,40 +56,48 @@ const RegisterPage = (props) => {
         <Field
           name="firstname"
           placeholder="Prénom"
+          type="email"
           error={errors.firstName}
-          onChange={handleChange}
+          handleChange={handleChange}
+          required
         />
         <Field
           name="lastname"
           placeholder="Prénom"
+          type="email"
           error={errors.lastName}
-          onChange={handleChange}
+          handleChange={handleChange}
+          required
         />
         <Field
           name="email"
           placeholder="Email"
+          type="email"
           error={errors.email}
-          onChange={handleChange}
+          handleChange={handleChange}
+          required
         />
         <Field
           name="password"
           type="password"
           placeholder="Mot de passe"
           error={errors.password}
-          onChange={handleChange}
+          handleChange={handleChange}
+          required
         />
         <Field
           name="passwordConfirm"
           type="password"
           placeholder="Confirmation mot de passe"
           error={errors.passwordConfirm}
-          onChange={handleChange}
+          handleChange={handleChange}
+          required
         />
 
-        <div>
-          <Button text="Valider" type="submit" />
-          <Link to="/login">J'ai déjà un compte</Link>
-        </div>
+        <Button text="Valider" type="submit" />
+        <Container>
+          <ButtonBottomText text="J'ai déjà un compte" navigation="login" />
+        </Container>
       </form>
     </>
   );

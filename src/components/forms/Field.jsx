@@ -15,22 +15,10 @@ const Input = styled.input`
   }
 `;
 
-const Field = ({
-  name,
-  onChange,
-  placeholder = "",
-  type = "text",
-  error = "",
-}) => {
+const Field = ({ name, handleChange, error = "", ...otherProps }) => {
   return (
     <div>
-      <Input
-        onChange={onChange}
-        type={type}
-        placeholder={placeholder}
-        name={name}
-        id={name}
-      />
+      <Input onChange={handleChange} name={name} {...otherProps} />
       {error && <p>{error}</p>}
     </div>
   );
