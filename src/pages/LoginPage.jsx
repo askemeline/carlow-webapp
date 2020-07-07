@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
-<<<<<<< HEAD
-import { useHistory } from "react-router-dom";
-=======
-import BackgroundSemicircle from '../components/forms/BackgroundSemicircle.jsx';
-import Margin from '../components/forms/Margin.jsx';
-
->>>>>>> added style, title component and background component, and started css with dark theme
+import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
+import Margin from "../components/forms/Margin.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -53,34 +49,33 @@ const LoginPage = (props) => {
 
   return (
     <>
-    
-    <BackgroundSemicircle text="Se connecter" />
-    <Margin>
-      <form onSubmit={handleSubmit}>
-        <Field
-          name="email"
-          placeholder="Email"
-          error={errors.email}
-          handleChange={handleChange}
-          required
-        />
-        <Field
-          name="password"
-          type="password"
-          placeholder="Mot de passe"
-          error={errors.password}
-          handleChange={handleChange}
-          required
-        />
-        <Button text="Connexion" type="submit" />
-        <Container>
-          <ButtonBottomText text="Créer un compte" navigation="register" />
-          <ButtonBottomText
-            text="Mot de passe oublié"
-            navigation="passwordforgot"
+      <BackgroundSemicircle text="Se connecter" />
+      <Margin>
+        <form onSubmit={handleSubmit}>
+          <Field
+            name="email"
+            placeholder="Email"
+            error={errors.email}
+            handleChange={handleChange}
+            required
           />
-        </Container>
-      </form>
+          <Field
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            error={errors.password}
+            handleChange={handleChange}
+            required
+          />
+          <Button text="Connexion" type="submit" />
+          <Container>
+            <ButtonBottomText text="Créer un compte" navigation="register" />
+            <ButtonBottomText
+              text="Mot de passe oublié"
+              navigation="passwordforgot"
+            />
+          </Container>
+        </form>
       </Margin>
     </>
   );
