@@ -7,12 +7,15 @@ const Input = styled.input`
   padding: 15px 10px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: 1px solid #273539;
+  background-color: #1C1C1E;
+  border: 1px solid #3D3D41;
   border-radius: 4px;
+  color: #fff;
 
   ::placeholder {
-    color: #273539;
+    color: #fff;
   }
+
 `;
 
 const Field = ({ name, handleChange, error = "", ...otherProps }) => {

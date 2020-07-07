@@ -5,13 +5,17 @@ const Container = styled.div`
   margin: 20px;
 `;
 
+const Text = styled.div`
+  color: #ffff;
+`;
+
 const DesktopPage = () => {
   return (
     <Container>
-      <p>
+      <Text>
         Oops, Le site n'est pas optimiser pour la version ordinateur, utilisez
         la version mobile 😉
-      </p>
+      </Text>
     </Container>
   );
 };
