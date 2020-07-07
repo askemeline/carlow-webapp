@@ -8,7 +8,7 @@ import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
 import { useHistory } from "react-router-dom";
 =======
 import BackgroundSemicircle from '../components/forms/BackgroundSemicircle.jsx';
-import Title from '../components/forms/Title.jsx';
+import Margin from '../components/forms/Margin.jsx';
 
 >>>>>>> added style, title component and background component, and started css with dark theme
 
@@ -54,9 +54,8 @@ const LoginPage = (props) => {
   return (
     <>
     
-    <BackgroundSemicircle text="" />
-    <Title text="Se connecter"/>
-      
+    <BackgroundSemicircle text="Se connecter" />
+    <Margin>
       <form onSubmit={handleSubmit}>
         <Field
           name="email"
@@ -82,6 +81,7 @@ const LoginPage = (props) => {
           />
         </Container>
       </form>
+      </Margin>
     </>
   );
 };
