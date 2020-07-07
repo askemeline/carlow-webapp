@@ -5,11 +5,15 @@ import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
+import Margin from "../components/forms/Margin.jsx";
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+`;
+const Title = styled.h1`
+  color: #ffff;
 `;
 
 const RegisterPage = (props) => {
@@ -50,55 +54,57 @@ const RegisterPage = (props) => {
 
   return (
     <>
-      <HeaderButton icon="back" text="Retour" navigation="login" />
-      <h1>Inscription</h1>
-      <form onSubmit={handleSubmit}>
-        <Field
-          name="firstname"
-          placeholder="Prénom"
-          type="email"
-          error={errors.firstName}
-          handleChange={handleChange}
-          required
-        />
-        <Field
-          name="lastname"
-          placeholder="Prénom"
-          type="email"
-          error={errors.lastName}
-          handleChange={handleChange}
-          required
-        />
-        <Field
-          name="email"
-          placeholder="Email"
-          type="email"
-          error={errors.email}
-          handleChange={handleChange}
-          required
-        />
-        <Field
-          name="password"
-          type="password"
-          placeholder="Mot de passe"
-          error={errors.password}
-          handleChange={handleChange}
-          required
-        />
-        <Field
-          name="passwordConfirm"
-          type="password"
-          placeholder="Confirmation mot de passe"
-          error={errors.passwordConfirm}
-          handleChange={handleChange}
-          required
-        />
+      <Margin>
+        <HeaderButton icon="back" text="Retour" navigation="login" />
+        <Title>Inscription</Title>
+        <form onSubmit={handleSubmit}>
+          <Field
+            name="firstname"
+            placeholder="Prénom"
+            type="email"
+            error={errors.firstName}
+            handleChange={handleChange}
+            required
+          />
+          <Field
+            name="lastname"
+            placeholder="Prénom"
+            type="email"
+            error={errors.lastName}
+            handleChange={handleChange}
+            required
+          />
+          <Field
+            name="email"
+            placeholder="Email"
+            type="email"
+            error={errors.email}
+            handleChange={handleChange}
+            required
+          />
+          <Field
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            error={errors.password}
+            handleChange={handleChange}
+            required
+          />
+          <Field
+            name="passwordConfirm"
+            type="password"
+            placeholder="Confirmation mot de passe"
+            error={errors.passwordConfirm}
+            handleChange={handleChange}
+            required
+          />
 
-        <Button text="Valider" type="submit" />
-        <Container>
-          <ButtonBottomText text="J'ai déjà un compte" navigation="login" />
-        </Container>
-      </form>
+          <Button text="Valider" type="submit" />
+          <Container>
+            <ButtonBottomText text="J'ai déjà un compte" navigation="login" />
+          </Container>
+        </form>
+      </Margin>
     </>
   );
 };
