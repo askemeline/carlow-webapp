@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import PasswordForgot from "./pages/PasswordForgot.jsx";
 import DesktopPage from "./pages/DesktopPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 function App() {
   const isMobile = useMediaQuery({ maxDeviceWidth: 760 });
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/passwordforgot" component={PasswordForgot} />
+            <Route exact path="/home" component={HomePage} />
           </Switch>
           <Route exact path="/">
             <Redirect to="/login" />

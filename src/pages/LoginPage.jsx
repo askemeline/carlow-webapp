@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -12,6 +13,8 @@ const Container = styled.div`
 `;
 
 const LoginPage = (props) => {
+  let history = useHistory();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -28,6 +31,7 @@ const LoginPage = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    history.push("/home");
     try {
       //TODO: register user on api
       setErrors({});
