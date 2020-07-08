@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
@@ -17,6 +19,8 @@ const Title = styled.h1`
 `;
 
 const RegisterPage = (props) => {
+  let history = useHistory();
+
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -33,23 +37,24 @@ const RegisterPage = (props) => {
     passwordConfirm: "",
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUser({ [name]: value });
+  const handleChange = ({ currentTarget }) => {
+    const { name, value } = currentTarget;
+    setUser({ ...user, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("user", user);
     try {
-      //TODO: register user on api
-      setErrors({});
-    } catch (error) {
-      console.log(error.response);
-      //   const { violations } = error.response.data;
-
-      //TODO: gerer erreur msg avec l'api
+      const response = await axios.post(
+        "https://maxime-marechal.com/api-carlow/public/api/users",
+        user
+      );
+      console.log("👉 Returned data:", response);
+      history.push("/login");
+    } catch (e) {
+      console.log(`😱 Axios request failed: ${e}`);
     }
-    console.log(user);
   };
 
   return (
@@ -64,7 +69,6 @@ const RegisterPage = (props) => {
             type="email"
             error={errors.firstName}
             handleChange={handleChange}
-            required
           />
           <Field
             name="lastname"
@@ -72,7 +76,6 @@ const RegisterPage = (props) => {
             type="email"
             error={errors.lastName}
             handleChange={handleChange}
-            required
           />
           <Field
             name="email"
@@ -96,7 +99,6 @@ const RegisterPage = (props) => {
             placeholder="Confirmation mot de passe"
             error={errors.passwordConfirm}
             handleChange={handleChange}
-            required
           />
 
           <Button text="Valider" type="submit" />
