@@ -16,16 +16,16 @@ const Input = styled.input`
     color: #fff;
   }
 `;
-const Error = styled.input`
+const Error = styled.p`
   color: white;
 `;
 
 const Field = ({ name, error = "", ...otherProps }) => {
   return (
-    <div>
+    <>
       <Input name={name} {...otherProps} />
       {error && <Error>{error}</Error>}
-    </div>
+    </>
   );
 };
 

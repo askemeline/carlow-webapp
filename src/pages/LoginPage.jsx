@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
@@ -24,10 +23,6 @@ const LoginPage = ({ history }) => {
     username: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
-    username: "",
-    password: "",
-  });
 
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
@@ -43,10 +38,11 @@ const LoginPage = ({ history }) => {
     event.preventDefault();
     try {
       await AuthAPI.authenticate(credentials);
-      setErrors("");
+      setError("");
       setIsAuthenticated(true);
       history.replace("/home");
     } catch (e) {
+      setError({ ...error });
       console.log(`Axios request failed: ${e}`);
     }
   };
@@ -62,10 +58,9 @@ const LoginPage = ({ history }) => {
             type="email"
             error={error.username}
             onChange={handleChange}
-            value={credentials.email}
+            value={credentials.username}
             required
           />
-
           <Field
             value={credentials.password}
             name="password"
@@ -75,7 +70,6 @@ const LoginPage = ({ history }) => {
             onChange={handleChange}
             required
           />
-
           <Button text="Connexion" type="submit" />
           <Container>
             <ButtonBottomText text="Créer un compte" navigation="register" />
