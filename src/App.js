@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 import "./App.css";
@@ -35,12 +35,21 @@ function App() {
           }}
         >
           <Switch>
-            <Route exact path="/login" component={LoginPage} />
+            <Route path="/login" component={LoginPage} />
             <PrivateRoute path="/home" component={HomePage} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/passwordforgot" component={PasswordForgot} />
             <Route component={Error} />
           </Switch>
+          {isAuthenticated ? (
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          ) : (
+            <Route exact path="/">
+              <Redirect to="/login" />
+            </Route>
+          )}
         </AuthContext.Provider>
       )}
     </>
