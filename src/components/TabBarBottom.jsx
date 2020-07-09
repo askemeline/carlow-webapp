@@ -32,8 +32,6 @@ const Text = styled.p`
 `;
 
 const TabBarBottom = ({ text }) => {
-  console.log("hello", text);
-
   return (
     <Container>
       {text === "setting" ? (
