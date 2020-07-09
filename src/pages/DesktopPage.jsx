@@ -14,7 +14,7 @@ const DesktopPage = () => {
     <Container>
       <Text>
         Oops, Le site n'est pas optimiser pour la version ordinateur, utilisez
-        la version mobile 😉
+        la version mobile
       </Text>
     </Container>
   );

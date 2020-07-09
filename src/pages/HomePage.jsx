@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import FavorisInput from "../components/FavorisInput.jsx";
 import TabBarBottom from "../components/TabBarBottom.jsx";
 
+import AuthAPI from "../services/authAPI";
+import { useHistory } from "react-router-dom";
+import AuthContext from "../context/AuthContext.js";
+
 const HomePage = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+
+  let history = useHistory();
+
+  const handleLogOut = () => {
+    AuthAPI.logout();
+    setIsAuthenticated(false);
+    history.push("/login");
+  };
   return (
     <>
+      <button onClick={handleLogOut}>SE DECONNECTER</button>
       <p>Score calculé selon vos comparaisons et selon le VTC le plus cher</p>
       <FavorisInput
         type="search"
