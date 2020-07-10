@@ -20,7 +20,16 @@ function authenticate(credentials) {
   return axios
     .post(
       "https://maxime-marechal.com/api-carlow/public/api/login_check",
-      credentials
+      credentials,
+      {
+        headers: {
+          "Access-Control-Allow-Headers": "content-type, authorization",
+          "Access-Control-Allow-Methods":
+            "GET, OPTIONS, POST, PUT, PATCH, DELETE",
+          "Access-Control-Max-Age": 3600,
+          "Content-Type": "application/json",
+        },
+      }
     )
     .then((response) => response.data.token)
     .then((token) => {
