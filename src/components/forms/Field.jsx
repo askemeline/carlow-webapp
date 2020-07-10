@@ -7,23 +7,25 @@ const Input = styled.input`
   padding: 15px 10px;
   margin: 8px 0;
   box-sizing: border-box;
-  background-color: #1C1C1E;
-  border: 1px solid #3D3D41;
+  background-color: #1c1c1e;
+  border: 1px solid #3d3d41;
   border-radius: 4px;
   color: #fff;
 
   ::placeholder {
     color: #fff;
   }
-
+`;
+const Error = styled.p`
+  color: white;
 `;
 
-const Field = ({ name, handleChange, error = "", ...otherProps }) => {
+const Field = ({ name, error = "", ...otherProps }) => {
   return (
-    <div>
-      <Input onChange={handleChange} name={name} {...otherProps} />
-      {error && <p>{error}</p>}
-    </div>
+    <>
+      <Input name={name} {...otherProps} />
+      {error && <Error>{error}</Error>}
+    </>
   );
 };
 

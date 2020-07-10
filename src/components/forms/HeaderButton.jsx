@@ -1,6 +1,5 @@
 import React from "react";
 import { FaTimes, FaChevronLeft } from "react-icons/fa";
-import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -17,7 +16,7 @@ const Text = styled(Link)`
 
 const HeaderButton = ({ text, icon = "", navigation }) => {
   return (
-    <div style={{color: 'white'}}>
+    <div style={{ color: "white" }}>
       <Container>
         {icon === "back" ? <FaChevronLeft /> : <FaTimes />}
         <Text to={`${navigation}`}>{text}</Text>

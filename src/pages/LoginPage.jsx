@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
 import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
 import Margin from "../components/forms/Margin.jsx";
+import AuthAPI from "../services/authAPI.js";
+import AuthContext from "../context/AuthContext.js";
 
 const Container = styled.div`
   display: flex;
@@ -15,36 +16,35 @@ const Container = styled.div`
   color: #fff;
 `;
 
-const LoginPage = (props) => {
-  let history = useHistory();
+const LoginPage = ({ history }) => {
+  const { setIsAuthenticated } = useContext(AuthContext);
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState({
-    email: "",
+  const [credentials, setCredentials] = useState({
+    username: "",
     password: "",
   });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUser({ [name]: value });
+  const handleChange = ({ currentTarget }) => {
+    const { name, value } = currentTarget;
+    setCredentials({ ...credentials, [name]: value });
   };
+
+  const [error, setError] = useState({
+    username: "",
+    password: "",
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    history.push("/home");
     try {
-      //TODO: register user on api
-      setErrors({});
-    } catch (error) {
-      console.log(error.response);
-      //   const { violations } = error.response.data;
-
-      //TODO: gerer erreur msg avec l'api
+      await AuthAPI.authenticate(credentials);
+      setError("");
+      setIsAuthenticated(true);
+      history.replace("/home");
+    } catch (e) {
+      setError({ ...error });
+      console.log(`Axios request failed: ${e}`);
     }
-    console.log(user);
   };
 
   return (
@@ -53,18 +53,21 @@ const LoginPage = (props) => {
       <Margin>
         <form onSubmit={handleSubmit}>
           <Field
-            name="email"
+            name="username"
             placeholder="Email"
-            error={errors.email}
-            handleChange={handleChange}
+            type="email"
+            error={error.username}
+            onChange={handleChange}
+            value={credentials.username}
             required
           />
           <Field
+            value={credentials.password}
             name="password"
             type="password"
             placeholder="Mot de passe"
-            error={errors.password}
-            handleChange={handleChange}
+            error={error.password}
+            onChange={handleChange}
             required
           />
           <Button text="Connexion" type="submit" />

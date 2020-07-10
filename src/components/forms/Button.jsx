@@ -3,8 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonText = styled.button`
-  background-color: #3d3d41; /* Green */
-  border: none;
+  background-color: #3d3d41;
   color: #fff;
   border-radius: 5px;
   padding: 15px 30px;
@@ -16,11 +15,7 @@ const ButtonText = styled.button`
 `;
 
 const Button = ({ text, ...otherProps }) => {
-  return (
-    <ButtonText className="button" {...otherProps}>
-      {text}
-    </ButtonText>
-  );
+  return <ButtonText {...otherProps}>{text}</ButtonText>;
 };
 
 export default Button;

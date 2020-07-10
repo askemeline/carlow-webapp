@@ -46,14 +46,13 @@ const RegisterPage = (props) => {
     event.preventDefault();
     console.log("user", user);
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://maxime-marechal.com/api-carlow/public/api/users",
         user
       );
-      console.log("👉 Returned data:", response);
       history.push("/login");
     } catch (e) {
-      console.log(`😱 Axios request failed: ${e}`);
+      console.log(`Axios request failed: ${e}`);
     }
   };
 
@@ -64,25 +63,28 @@ const RegisterPage = (props) => {
         <Title>Inscription</Title>
         <form onSubmit={handleSubmit}>
           <Field
-            name="firstname"
+            name="firstNÒame"
             placeholder="Prénom"
-            type="email"
+            type="text"
             error={errors.firstName}
-            handleChange={handleChange}
+            onChange={handleChange}
+            value={user.firstname}
           />
           <Field
-            name="lastname"
+            name="lastName"
             placeholder="Prénom"
-            type="email"
+            type="text"
             error={errors.lastName}
-            handleChange={handleChange}
+            onChange={handleChange}
+            value={user.lastName}
           />
           <Field
             name="email"
             placeholder="Email"
             type="email"
             error={errors.email}
-            handleChange={handleChange}
+            onChange={handleChange}
+            value={user.email}
             required
           />
           <Field
@@ -90,7 +92,8 @@ const RegisterPage = (props) => {
             type="password"
             placeholder="Mot de passe"
             error={errors.password}
-            handleChange={handleChange}
+            onChange={handleChange}
+            value={user.password}
             required
           />
           <Field
@@ -98,7 +101,8 @@ const RegisterPage = (props) => {
             type="password"
             placeholder="Confirmation mot de passe"
             error={errors.passwordConfirm}
-            handleChange={handleChange}
+            value={user.passwordConfirm}
+            onChange={handleChange}
           />
 
           <Button text="Valider" type="submit" />
