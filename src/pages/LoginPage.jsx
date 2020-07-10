@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
@@ -36,6 +37,8 @@ const LoginPage = ({ history }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    axios.defaults.headers.post["Content-Type"] =
+      "application/x-www-form-urlencoded";
     try {
       await AuthAPI.authenticate(credentials);
       setError("");

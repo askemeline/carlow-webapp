@@ -17,9 +17,6 @@ function logout() {
  */
 
 function authenticate(credentials) {
-  axios.defaults.headers.post["Content-Type"] =
-    "application/x-www-form-urlencoded";
-
   return axios
     .post(
       "https://maxime-marechal.com/api-carlow/public/api/login_check",
