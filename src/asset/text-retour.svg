@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="73" height="22" viewBox="0 0 73 22">
+  <g id="Groupe_2217" data-name="Groupe 2217" transform="translate(-16 -14)">
+    <g id="Groupe_102" data-name="Groupe 102" transform="translate(0 -18.514)">
+      <text id="Retour" transform="translate(40 48.514)" fill="#fff" font-size="16" font-family="Avenir-Medium, Avenir" font-weight="500"><tspan x="0" y="0">Retour</tspan></text>
+      <g id="arrow-point-to-right" transform="translate(23.74 51.361) rotate(180)">
+        <path id="Tracé_12" data-name="Tracé 12" d="M7.462,7.462,1.623,13.3A.951.951,0,0,1,.278,11.957L5.444,6.79.279,1.623A.951.951,0,0,1,1.623.279L7.462,6.118a.951.951,0,0,1,0,1.345Z" transform="translate(0 0)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

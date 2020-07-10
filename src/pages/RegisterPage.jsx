@@ -58,7 +58,7 @@ const RegisterPage = (props) => {
 
   return (
     <>
-      <Margin>
+      <Margin heightProps="92%">
         <HeaderButton icon="back" text="Retour" navigation="login" />
         <Title>Inscription</Title>
         <form onSubmit={handleSubmit}>
