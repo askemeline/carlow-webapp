@@ -37,10 +37,9 @@ function App() {
           }}
         >
           <Switch>
+            <Route path="/login" component={LoginPage} />
             <PrivateRoute path="/home" component={HomePage} />
             <Route exact path="/register" component={RegisterPage} />
-            <Route exact path="/passwordforgot" component={PasswordForgot} />
-            <Route exact path="/home" component={HomePage} />
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/info-perso" component={ProfilePageInfoperso} />
             <Route component={Error} />
