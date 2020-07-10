@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ReactComponent as ImageDarkMode } from '../asset/bg-dark-mode.svg';
+import { ReactComponent as ImageDarkMode } from "../asset/bg-dark-mode.svg";
 
 const BackgroundDM = styled(ImageDarkMode)`
   position: absolute;
@@ -8,10 +8,9 @@ const BackgroundDM = styled(ImageDarkMode)`
   right: 0;
   z-index: -1;
   width: 100%;
-`
-const BackgroundDarkMode = ({  }) => {
-  return <BackgroundDM></BackgroundDM> 
+`;
+const BackgroundDarkMode = () => {
+  return <BackgroundDM />;
 };
 
 export default BackgroundDarkMode;
-

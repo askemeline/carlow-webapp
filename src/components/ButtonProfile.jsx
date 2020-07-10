@@ -20,12 +20,15 @@ const Button = styled(Link)`
   position: relative;
 `;
 
-
-
 const ButtonProfile = ({ text, navigation, ...otherProps }) => {
   return (
-    <Button to={`${navigation}`} class="btn btn-warning" type="text" {...otherProps}>
-      {text} <FaChevronRight className="chevron-right" /> 
+    <Button
+      to={`${navigation}`}
+      className="btn btn-warning"
+      type="text"
+      {...otherProps}
+    >
+      {text} <FaChevronRight className="chevron-right" />
     </Button>
   );
 };
