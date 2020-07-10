@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="157.792" height="45.168" viewBox="0 0 157.792 45.168">
+  <g id="Groupe_2216" data-name="Groupe 2216" transform="translate(-3297.5 5482.5)">
+    <path id="Intersection_6" data-name="Intersection 6" d="M208.49,141.759c-21.859-2.044-50.989-6.946-80.534-12.676v-32H285.749c-5.189,14.422-21.582,45.167-67.034,45.168Q213.829,142.25,208.49,141.759Z" transform="translate(3169.543 -5579.583)" fill="#44565c"/>
+    <path id="Intersection_7" data-name="Intersection 7" d="M45.272,95.418V51.57H171.8q-.9.536-1.85,1.083C145.715,66.681,125.1,76.326,107.957,82.769c-26.6,10-45.659,12.746-58.57,12.746Q47.215,95.516,45.272,95.418Z" transform="translate(3252.229 -5534.07)" fill="#1f292c"/>
+    <g id="Groupe_2215" data-name="Groupe 2215" transform="translate(3297 -5483)">
+      <g id="Groupe_102" data-name="Groupe 102" transform="translate(0 -18.514)">
+        <text id="Retour" transform="translate(40 48.514)" fill="#fff" font-size="16" font-family="Avenir-Medium, Avenir" font-weight="500"><tspan x="0" y="0">Retour</tspan></text>
+        <g id="arrow-point-to-right" transform="translate(23.74 51.361) rotate(180)">
+          <path id="Tracé_12" data-name="Tracé 12" d="M7.462,7.462,1.623,13.3A.951.951,0,0,1,.278,11.957L5.444,6.79.279,1.623A.951.951,0,0,1,1.623.279L7.462,6.118a.951.951,0,0,1,0,1.345Z" transform="translate(0 0)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

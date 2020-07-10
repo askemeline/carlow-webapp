@@ -1,3 +1,7 @@
+
+html, body, #root, .App {
+  height: 100%;
+}
 :focus {
   outline: 0;
   }
@@ -8,4 +12,10 @@
 
   body.white{
     background-color: #fff;
+  }
+
+  .chevron-right{
+    right: 30px;
+    top: 18px;
+    position: absolute !important;
   }
