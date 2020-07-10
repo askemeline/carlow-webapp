@@ -63,7 +63,7 @@ const RegisterPage = (props) => {
         <Title>Inscription</Title>
         <form onSubmit={handleSubmit}>
           <Field
-            name="firstname"
+            name="firstNÒame"
             placeholder="Prénom"
             type="text"
             error={errors.firstName}
@@ -71,7 +71,7 @@ const RegisterPage = (props) => {
             value={user.firstname}
           />
           <Field
-            name="lastname"
+            name="lastName"
             placeholder="Prénom"
             type="text"
             error={errors.lastName}
