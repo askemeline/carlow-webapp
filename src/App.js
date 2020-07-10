@@ -12,7 +12,7 @@ import AuthAPI from "./services/authAPI.js";
 import AuthContext from "./context/AuthContext.js";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import Error from "./components/Error.jsx";
-import ProfilePage from "./pages/ProfilePage";
+import ProfilePage from "./pages/ProfilePage.jsx";
 import ProfilePageInfoperso from "./pages/ProfilePageInfoperso.jsx";
 
 AuthAPI.setup();
@@ -42,6 +42,7 @@ function App() {
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/info-perso" component={ProfilePageInfoperso} />
+            <Route path="/passwordforgot" component={PasswordForgot} />
             <Route component={Error} />
           </Switch>
           {isAuthenticated ? (

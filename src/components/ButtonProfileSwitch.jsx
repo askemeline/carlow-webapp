@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { FaChevronRight } from "react-icons/fa";
+import React from "react";
 import styled from "styled-components";
-import Switch from 'react-input-switch';
-
+import Switch from "react-input-switch";
 
 const Button = styled.div`
   background-color: #3d3d41;
@@ -21,12 +19,15 @@ const Button = styled.div`
   position: relative;
 `;
 
-
-const ButtonProfile = ({ text, navigation,  ...otherProps }) => {
-  
+const ButtonProfile = ({ text, navigation = "", ...otherProps }) => {
   return (
-    <Button to={`${navigation}`} class="btn btn-warning" type="text" {...otherProps}> 
-      {text} <Switch className="chevron-right" /> 
+    <Button
+      to={`${navigation}`}
+      className="btn btn-warning"
+      type="text"
+      {...otherProps}
+    >
+      {text} <Switch className="chevron-right" />
     </Button>
   );
 };
