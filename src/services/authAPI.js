@@ -20,7 +20,12 @@ function authenticate(credentials) {
   return axios
     .post(
       "https://maxime-marechal.com/api-carlow/public/api/login_check",
-      credentials
+      credentials,
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
     )
     .then((response) => response.data.token)
     .then((token) => {
