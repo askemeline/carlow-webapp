@@ -63,7 +63,7 @@ const RegisterPage = (props) => {
         <Title>Inscription</Title>
         <form onSubmit={handleSubmit}>
           <Field
-            name="firstNÒame"
+            name="firstName"
             placeholder="Prénom"
             type="text"
             error={errors.firstName}
