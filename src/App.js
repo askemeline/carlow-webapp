@@ -12,6 +12,8 @@ import AuthAPI from "./services/authAPI.js";
 import AuthContext from "./context/AuthContext.js";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import Error from "./components/Error.jsx";
+import ProfilePage from "./pages/ProfilePage";
+import ProfilePageInfoperso from "./pages/ProfilePageInfoperso.jsx";
 
 AuthAPI.setup();
 
@@ -35,10 +37,12 @@ function App() {
           }}
         >
           <Switch>
-            <Route path="/login" component={LoginPage} />
             <PrivateRoute path="/home" component={HomePage} />
-            <Route path="/register" component={RegisterPage} />
-            <Route path="/passwordforgot" component={PasswordForgot} />
+            <Route exact path="/register" component={RegisterPage} />
+            <Route exact path="/passwordforgot" component={PasswordForgot} />
+            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/profile" component={ProfilePage} />
+            <Route exact path="/info-perso" component={ProfilePageInfoperso} />
             <Route component={Error} />
           </Switch>
           {isAuthenticated ? (

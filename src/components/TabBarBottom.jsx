@@ -34,14 +34,14 @@ const Text = styled.p`
 const TabBarBottom = ({ text }) => {
   return (
     <Container>
-      {text === "setting" ? (
+      {text === "profile" ? (
         <>
           <Link to="/home">
             <IconContext.Provider value={{ color: "#022A2F", size: "2em" }}>
               <IoIosHome />
             </IconContext.Provider>
           </Link>
-          <Link to="/setting" style={{ textDecoration: "none" }}>
+          <Link to="/profile" style={{ textDecoration: "none" }}>
             <Flex
               style={{
                 backgroundColor: text === "home" ? "#F3D2D3" : "#B4D0D3",
@@ -76,7 +76,7 @@ const TabBarBottom = ({ text }) => {
               </IconContext.Provider>
             </Flex>
           </Link>
-          <Link to="/setting">
+          <Link to="/profile">
             <IconContext.Provider value={{ color: "#022A2F", size: "2em" }}>
               <MdSettings />
             </IconContext.Provider>
