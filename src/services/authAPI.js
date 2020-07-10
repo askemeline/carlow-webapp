@@ -17,19 +17,13 @@ function logout() {
  */
 
 function authenticate(credentials) {
+  axios.defaults.headers.post["Content-Type"] =
+    "application/x-www-form-urlencoded";
+
   return axios
     .post(
       "https://maxime-marechal.com/api-carlow/public/api/login_check",
-      credentials,
-      {
-        headers: {
-          "Access-Control-Allow-Headers": "content-type, authorization",
-          "Access-Control-Allow-Methods":
-            "GET, OPTIONS, POST, PUT, PATCH, DELETE",
-          "Access-Control-Max-Age": 3600,
-          "Content-Type": "application/json",
-        },
-      }
+      credentials
     )
     .then((response) => response.data.token)
     .then((token) => {
