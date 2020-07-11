@@ -13,14 +13,21 @@ function logout() {
 
 /**
  * Requete HTTP d'authentification et stockage du token dans le storage et sur axios
- * @param {bject*} credentials
+ * @param {Object} credentials
  */
 
 function authenticate(credentials) {
   return axios
     .post(
       "https://maxime-marechal.com/api-carlow/public/api/login_check",
-      credentials
+      credentials,
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+          "Access--Allow-Credentials": true,
+        },
+      }
     )
     .then((response) => response.data.token)
     .then((token) => {
