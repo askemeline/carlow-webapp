@@ -25,7 +25,7 @@ function authenticate(credentials) {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
-          "Access--Allow-Credentials": true,
+          "Access-Control-Allow-Credentials": true,
         },
       }
     )
