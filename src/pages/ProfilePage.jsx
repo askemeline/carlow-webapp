@@ -19,7 +19,7 @@ const ProfilePage = () => {
         <ButtonProfile text="Gestion des notifications" navigation="login" />
         <ButtonProfile text="Position" navigation="login" />
         <ButtonProfileSwitch text="Activer le theme sombre" />
-        <TabBarBottom text="home" />
+        <TabBarBottom text="profile" />
       </Margin>
     </>
   );
