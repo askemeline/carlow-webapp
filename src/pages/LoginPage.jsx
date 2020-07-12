@@ -49,7 +49,7 @@ const LoginPage = ({ history }) => {
 
   return (
     <>
-      <BackgroundSemicircle text="Se connecter" />
+      <BackgroundSemicircle text="Hello, Se connecter" />
       <Margin heightProps="54%">
         <form onSubmit={handleSubmit}>
           <Field
