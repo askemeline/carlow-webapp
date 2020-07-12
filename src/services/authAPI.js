@@ -20,14 +20,7 @@ function authenticate(credentials) {
   return axios
     .post(
       "https://maxime-marechal.com/api-carlow/public/api/login_check",
-      credentials,
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
-        },
-      }
+      credentials
     )
     .then((response) => response.data.token)
     .then((token) => {
