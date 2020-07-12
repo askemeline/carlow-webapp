@@ -18,10 +18,7 @@ function logout() {
 
 function authenticate(credentials) {
   return axios
-    .post(
-      "https://maxime-marechal.com/api-carlow/public/api/login_check",
-      credentials
-    )
+    .post("https://api-carlow.herokuapp.com/api/login_check", credentials)
     .then((response) => response.data.token)
     .then((token) => {
       //stock token dans localstorage

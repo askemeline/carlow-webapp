@@ -46,10 +46,7 @@ const RegisterPage = (props) => {
     event.preventDefault();
     console.log("user", user);
     try {
-      await axios.post(
-        "https://maxime-marechal.com/api-carlow/public/api/users",
-        user
-      );
+      await axios.post("https://api-carlow.herokuapp.com/api/users", user);
       history.push("/login");
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
