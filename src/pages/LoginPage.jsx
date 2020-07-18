@@ -15,6 +15,9 @@ const Container = styled.div`
   margin-top: 20px;
   color: #fff;
 `;
+const Error = styled.p`
+  color: red;
+`;
 
 const LoginPage = ({ history }) => {
   const { setIsAuthenticated } = useContext(AuthContext);
@@ -29,20 +32,17 @@ const LoginPage = ({ history }) => {
     setCredentials({ ...credentials, [name]: value });
   };
 
-  const [error, setError] = useState({
-    username: "",
-    password: "",
-  });
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await AuthAPI.authenticate(credentials);
-      setError("");
+      // setError("Indentifiant invalide");
       setIsAuthenticated(true);
       history.replace("/home");
     } catch (e) {
-      setError({ ...error });
+      setError("Indentifiant invalide");
       console.log(`Axios request failed: ${e}`);
     }
   };
@@ -56,9 +56,9 @@ const LoginPage = ({ history }) => {
             name="username"
             placeholder="Email"
             type="email"
-            error={error.username}
             onChange={handleChange}
             value={credentials.username}
+            errorInput={error}
             required
           />
           <Field
@@ -66,11 +66,12 @@ const LoginPage = ({ history }) => {
             name="password"
             type="password"
             placeholder="Mot de passe"
-            error={error.password}
             onChange={handleChange}
+            errorInput={error}
             required
           />
           <Button text="Connexion" type="submit" />
+          <Error>{error}</Error>
           <Container>
             <ButtonBottomText text="Créer un compte" navigation="register" />
             <ButtonBottomText

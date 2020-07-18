@@ -71,7 +71,7 @@ const TabBarBottom = ({ text }) => {
                 <Text
                   style={{ color: text === "home" ? "#AA696B" : "#337F86" }}
                 >
-                  Acceuil
+                  Accueil
                 </Text>
               </IconContext.Provider>
             </Flex>
