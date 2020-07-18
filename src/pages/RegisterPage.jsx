@@ -17,6 +17,9 @@ const Container = styled.div`
 const Title = styled.h1`
   color: #ffff;
 `;
+const Error = styled.p`
+  color: red;
+`;
 
 const RegisterPage = (props) => {
   let history = useHistory();
@@ -29,13 +32,7 @@ const RegisterPage = (props) => {
     passwordConfirm: "",
   });
 
-  const [errors, setErrors] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    passwordConfirm: "",
-  });
+  const [errors, setErrors] = useState("");
 
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
@@ -49,6 +46,8 @@ const RegisterPage = (props) => {
       await axios.post("https://api-carlow.herokuapp.com/api/users", user);
       history.push("/login");
     } catch (e) {
+      setErrors("Il semblerait que cet email existe déjà");
+
       console.log(`Axios request failed: ${e}`);
     }
   };
@@ -103,6 +102,8 @@ const RegisterPage = (props) => {
           />
 
           <Button text="Valider" type="submit" />
+          <Error>{errors}</Error>
+
           <Container>
             <ButtonBottomText text="J'ai déjà un compte" navigation="login" />
           </Container>

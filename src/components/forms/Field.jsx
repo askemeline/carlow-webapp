@@ -10,19 +10,22 @@ const Input = styled.input`
   border: 1px solid #3d3d41;
   border-radius: 4px;
   color: #fff;
-
   ::placeholder {
     color: #fff;
   }
 `;
 const Error = styled.p`
-  color: white;
+  color: red;
 `;
 
-const Field = ({ name, error = "", ...otherProps }) => {
+const Field = ({ name, error = "", errorInput = "", ...otherProps }) => {
   return (
     <>
-      <Input name={name} {...otherProps} />
+      <Input
+        name={name}
+        {...otherProps}
+        style={{ borderColor: errorInput ? "red" : "" }}
+      />
       {error && <Error>{error}</Error>}
     </>
   );
