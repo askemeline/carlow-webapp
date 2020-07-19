@@ -20,6 +20,9 @@ const Title = styled.h1`
 const Error = styled.p`
   color: red;
 `;
+const Succes = styled.p`
+  color: green;
+`;
 
 const RegisterPage = (props) => {
   let history = useHistory();
@@ -32,7 +35,10 @@ const RegisterPage = (props) => {
     passwordConfirm: "",
   });
 
-  const [errors, setErrors] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
@@ -44,9 +50,13 @@ const RegisterPage = (props) => {
     console.log("user", user);
     try {
       await axios.post("https://api-carlow.herokuapp.com/api/users", user);
+      setSuccess(
+        "Votre inscription a été pris en compte vous pouvez maintenant vous connecter"
+      );
+      await delay(5000);
       history.push("/login");
     } catch (e) {
-      setErrors("Il semblerait que cet email existe déjà");
+      setError("Il semblerait que cet email existe déjà");
 
       console.log(`Axios request failed: ${e}`);
     }
@@ -62,7 +72,6 @@ const RegisterPage = (props) => {
             name="firstName"
             placeholder="Prénom"
             type="text"
-            error={errors.firstName}
             onChange={handleChange}
             value={user.firstname}
           />
@@ -70,7 +79,6 @@ const RegisterPage = (props) => {
             name="lastName"
             placeholder="Prénom"
             type="text"
-            error={errors.lastName}
             onChange={handleChange}
             value={user.lastName}
           />
@@ -78,7 +86,6 @@ const RegisterPage = (props) => {
             name="email"
             placeholder="Email"
             type="email"
-            error={errors.email}
             onChange={handleChange}
             value={user.email}
             required
@@ -87,7 +94,6 @@ const RegisterPage = (props) => {
             name="password"
             type="password"
             placeholder="Mot de passe"
-            error={errors.password}
             onChange={handleChange}
             value={user.password}
             required
@@ -96,14 +102,12 @@ const RegisterPage = (props) => {
             name="passwordConfirm"
             type="password"
             placeholder="Confirmation mot de passe"
-            error={errors.passwordConfirm}
             value={user.passwordConfirm}
             onChange={handleChange}
           />
 
           <Button text="Valider" type="submit" />
-          <Error>{errors}</Error>
-
+          {error ? <Error>{error}</Error> : <Succes>{success}</Succes>}
           <Container>
             <ButtonBottomText text="J'ai déjà un compte" navigation="login" />
           </Container>
