@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
@@ -17,22 +19,36 @@ const Text = styled.p`
 `;
 
 const PasswordForgot = () => {
-  const [email, setEmail] = useState({
-    email: "",
-  });
-  const [errors, setErrors] = useState({
-    email: "",
-  });
-  const handleChange = ({ currentTarget }) => {
-    const { name, value } = currentTarget;
-    setEmail({ ...email });
+  let history = useHistory();
+
+  const [email, setEmail] = useState("");
+  const [error, setErrors] = useState("");
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(email);
+
+    try {
+      await axios.get(
+        "https://api-carlow.herokuapp.com/api/password-reset/mail/" + email
+      );
+      history.push("/login");
+    } catch (e) {
+      setErrors("Oops cet email n'existe pas");
+
+      console.log(`Axios request failed: ${e}`);
+    }
   };
 
   return (
     <>
       <Margin>
         <HeaderButton icon="back" text="Retour" navigation="login" />
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <Title>Mot de passe oublié ?</Title>
             <Text>
@@ -42,8 +58,8 @@ const PasswordForgot = () => {
           <Field
             name="email"
             placeholder="E-mail"
-            error={errors.email}
-            handleChange={handleChange}
+            error={error}
+            onChange={handleChange}
           />
           <Button text="Envoyer" type="submit" />
         </form>
