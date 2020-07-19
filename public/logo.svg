@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 360 640" style="enable-background:new 0 0 360 640;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#DAE7E8;}
+	.st1{fill:#EAD9DA;}
+	.st2{fill:#C1E0EB;}
+	.st3{fill:#44565C;}
+	.st4{fill:#1F292C;}
+	.st5{fill:#191F21;}
+	.st6{fill:#FFFFFF;}
+	.st7{fill:#E15F64;}
+	.st8{font-family:'Avenir-Roman';}
+	.st9{font-size:36px;}
+	.st10{font-family:'Avenir-Book';}
+	.st11{font-size:18px;}
+</style>
+<g id="Groupe_2222" transform="translate(-10214 5963)">
+	<rect id="Rectangle_637" x="10214" y="-5963" class="st0" width="360" height="640"/>
+	<path id="Intersection_18" class="st1" d="M10291.9-5487.5l-77.4-24.7v-224.9c50.9-0.9,104.7,12,182.2,36.3
+		c46.3,14.5,109.8,24.3,176.8,30.7v182.5H10291.9z"/>
+	<path id="Intersection_20" class="st2" d="M10214.5-5395.6v-210c73.8,46.2,175,187.8,143.3,234c-3,4.3-9.9,6.3-20.1,6.3
+		C10312.6-5365.2,10267.8-5377.3,10214.5-5395.6z"/>
+	<path id="Intersection_19" class="st3" d="M10214.5-5467c37.6-59.3,87.6-125.2,135.5-147.9c53.6-25.4,141.1-25.3,223.5-27.6v225.8
+		l-359,49.7V-5467z"/>
+	<path id="Intersection_16" class="st4" d="M10214.5-5323.5v-134.2c32.6,8.9,69.5,6.3,108.5,3.7c65.6-4.3,137.2-8.7,204.6,41.8
+		c20.1,15,35,29.3,45.9,42.7v45.9H10214.5z"/>
+	<path id="Intersection_17" class="st5" d="M10360-5323.5c-0.4-20.9,14.7-50.6,67.4-91.4c53.1-41.1,101.5-54.3,146.1-62.1v153.5
+		H10360z"/>
+</g>
+<g id="Group_211" transform="translate(-10228.026 6602.216)">
+	<ellipse id="Ellipse_55" class="st6" cx="10448" cy="-6321.2" rx="15.5" ry="15"/>
+	<circle id="Ellipse_56" class="st7" cx="10413.5" cy="-6331.2" r="15"/>
+	<circle id="Ellipse_57" class="st6" cx="10381" cy="-6316.7" r="15.5"/>
+	<ellipse id="Ellipse_58" class="st6" cx="10368" cy="-6283.2" rx="15.5" ry="15"/>
+	<circle id="Ellipse_59" class="st6" cx="10380.5" cy="-6249.2" r="15"/>
+	<circle id="Ellipse_60" class="st6" cx="10413.5" cy="-6233.2" r="15"/>
+	<ellipse id="Ellipse_61" class="st6" cx="10448" cy="-6244.2" rx="15.5" ry="15"/>
+</g>
+<text transform="matrix(1 0 0 1 103.0146 521.208)" class="st6 st8 st9">CARLOW</text>
+<text transform="matrix(1 0 0 1 75.1516 562.7397)" class="st6 st10 st11">Votre comparateur de VTC</text>
+</svg>
