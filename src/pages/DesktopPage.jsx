@@ -1,21 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+import Themes from "../constants/Themes.js";
+
 const Container = styled.div`
   margin: 20px;
-`;
-
-const Text = styled.div`
-  color: #ffff;
 `;
 
 const DesktopPage = () => {
   return (
     <Container>
-      <Text>
+      <Themes.Text>
         Oops, Le site n'est pas optimiser pour la version ordinateur, utilisez
         la version mobile
-      </Text>
+      </Themes.Text>
     </Container>
   );
 };

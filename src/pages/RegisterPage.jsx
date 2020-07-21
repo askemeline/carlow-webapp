@@ -8,20 +8,12 @@ import Button from "../components/forms/Button.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
 import Margin from "../components/forms/Margin.jsx";
+import Themes from "../constants/Themes";
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-`;
-const Title = styled.h1`
-  color: #ffff;
-`;
-const Error = styled.p`
-  color: red;
-`;
-const Succes = styled.p`
-  color: green;
 `;
 
 const RegisterPage = (props) => {
@@ -66,7 +58,7 @@ const RegisterPage = (props) => {
     <>
       <Margin heightProps="92%">
         <HeaderButton icon="back" text="Retour" navigation="login" />
-        <Title>Inscription</Title>
+        <Themes.Title>Inscription</Themes.Title>
         <form onSubmit={handleSubmit}>
           <Field
             name="firstName"
@@ -107,7 +99,11 @@ const RegisterPage = (props) => {
           />
 
           <Button text="Valider" type="submit" />
-          {error ? <Error>{error}</Error> : <Succes>{success}</Succes>}
+          {error ? (
+            <Themes.Error>{error}</Themes.Error>
+          ) : (
+            <Themes.Succes>{success}</Themes.Succes>
+          )}
           <Container>
             <ButtonBottomText text="J'ai déjà un compte" navigation="login" />
           </Container>

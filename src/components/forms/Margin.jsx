@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const MarginContainer = styled.div`
-  margin: 20px;
+  margin: 0 20px 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,7 @@ const MarginContainer = styled.div`
 
 const Margin = ({ children, heightProps = "" }) => {
   return (
-    <MarginContainer style={{ height: heightProps ? heightProps : "80%" }}>
+    <MarginContainer style={{ height: heightProps }}>
       {children}
     </MarginContainer>
   );

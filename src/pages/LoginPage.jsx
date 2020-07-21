@@ -8,15 +8,13 @@ import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import AuthAPI from "../services/authAPI.js";
 import AuthContext from "../context/AuthContext.js";
+import Themes from "../constants/Themes";
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
   color: #fff;
-`;
-const Error = styled.p`
-  color: red;
 `;
 
 const LoginPage = ({ history }) => {
@@ -71,7 +69,7 @@ const LoginPage = ({ history }) => {
             required
           />
           <Button text="Connexion" type="submit" />
-          <Error>{error}</Error>
+          <Themes.Error>{error}</Themes.Error>
           <Container>
             <ButtonBottomText text="Créer un compte" navigation="register" />
             <ButtonBottomText
