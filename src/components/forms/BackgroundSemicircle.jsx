@@ -1,31 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-const Text = styled.h1`
-  text-decoration: none;
-  color: #fff;
-  font-size: 32px;
-  text-align: center;
-`;
+import Themes from "../../constants/Themes";
 
-const BackgroundColor = styled.div`
-  background-color: #1f292c;
-  margin: -20px 0px 20px 0px;
-  height: 86px;
-  border-radius: 0 0 100% 100%;
-  z-index: -1;
-  opacity: 0.86;
+const Flex = styled.div`
   display: flex;
-  height: 40vw;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 `;
 
-const BackgroundSemicircle = ({ text }) => {
+const BackgroundSemicircle = ({ text, subText = "" }) => {
   return (
-    <BackgroundColor>
-      <Text>{text}</Text>
-    </BackgroundColor>
+    <Themes.BackgroundColorHeader>
+      <Flex>
+        <Themes.TextHeader>{text}</Themes.TextHeader>
+        <Themes.SubTextHeader>{subText}</Themes.SubTextHeader>
+      </Flex>
+    </Themes.BackgroundColorHeader>
   );
 };
 

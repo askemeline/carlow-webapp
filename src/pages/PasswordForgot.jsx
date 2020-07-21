@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -7,22 +6,7 @@ import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import Margin from "../components/forms/Margin.jsx";
-
-const Title = styled.p`
-  color: #fff;
-  font-size: 18px;
-`;
-
-const Text = styled.p`
-  color: #fff;
-  font-size: 16px;
-`;
-const Error = styled.p`
-  color: red;
-`;
-const Succes = styled.p`
-  color: green;
-`;
+import Themes from "../constants/Themes";
 
 const PasswordForgot = () => {
   let history = useHistory();
@@ -60,17 +44,19 @@ const PasswordForgot = () => {
 
   return (
     <>
-      <Margin>
+      <Margin heightProps="80%">
         <HeaderButton icon="back" text="Retour" navigation="login" />
         <form onSubmit={handleSubmit}>
-          <div>
-            <Title>Mot de passe oublié ?</Title>
-            <Text>
-              Entrer votre adresse mail et réinitialiser votre mot de passe
-            </Text>
-          </div>
+          <Themes.Title>Mot de passe oublié ?</Themes.Title>
+          <Themes.Text>
+            Entrer votre adresse mail et réinitialiser votre mot de passe
+          </Themes.Text>
           <Field name="email" placeholder="E-mail" onChange={handleChange} />
-          {error ? <Error>{error}</Error> : <Succes>{success}</Succes>}
+          {error ? (
+            <Themes.Error>{error}</Themes.Error>
+          ) : (
+            <Themes.Succes>{success}</Themes.Succes>
+          )}
           <Button text="Envoyer" type="submit" />
         </form>
       </Margin>

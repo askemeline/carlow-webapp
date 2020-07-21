@@ -1,15 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
-const Text = styled(Link)`
-  text-decoration: none;
-  color: #fff;
-  font-size: 15px;
-`;
+import Themes from "../../constants/Themes";
 
 const ButtonBottomText = ({ text, navigation }) => {
-  return <Text to={`${navigation}`}>{text}</Text>;
+  return <Themes.TextLink to={`${navigation}`}>{text}</Themes.TextLink>;
 };
 
 export default ButtonBottomText;

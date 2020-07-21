@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import styled, { ThemeProvider } from "styled-components";
 import theme from "styled-theming";
 import { Provider as ReduxProvider } from "react-redux";
 
@@ -33,17 +32,6 @@ export const textColor = theme("theme", {
   dark: "#fff",
 });
 
-// const Container = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 100vw;
-//   height: 100vh;
-//   align-items: center;
-//   justify-content: center;
-//   font-family: sans-serif;
-//   background-color: ${backgroundColor};
-//   color: ${textColor};
-// `;
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     AuthAPI.isAuthenticated()

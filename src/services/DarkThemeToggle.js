@@ -1,24 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { TOGGLE_DARKTHEME } from "./actions";
-import styled from "styled-components";
-
-const Button = styled.div`
-  background-color: #3d3d41;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-  padding: 13px 28px;
-  margin: 10px 0;
-  width: 80%;
-  text-align: left;
-  text-decoration: none;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  opacity: 0.86;
-  position: relative;
-`;
+import Themes from "../constants/Themes";
 
 const DarkThemeToggle = ({ navigation = "", ...otherProps }) => {
   const darkThemeEnabled = useSelector(
@@ -26,7 +9,7 @@ const DarkThemeToggle = ({ navigation = "", ...otherProps }) => {
   );
   const dispatch = useDispatch();
   return (
-    <Button
+    <Themes.ToggleDarkMode
       to={`${navigation}`}
       className="btn btn-warning"
       type="text"
@@ -46,7 +29,7 @@ const DarkThemeToggle = ({ navigation = "", ...otherProps }) => {
           <label htmlFor="checkbox" />
         </span>
       </div>
-    </Button>
+    </Themes.ToggleDarkMode>
   );
 };
 

@@ -10,15 +10,15 @@ const ProfilePage = () => {
   return (
     <>
       <BackgroundSemicircle text="Mon profil" />
-      <Margin heightProps="55%">
+      <Margin>
         <ButtonProfile
           text="Informations personnelles"
           navigation="info-perso"
         />
-        <ButtonProfile text="Gestion des favoris" navigation="login" />
-        <ButtonProfile text="Carte bancaire" navigation="login" />
-        <ButtonProfile text="Gestion des notifications" navigation="login" />
-        <ButtonProfile text="Position" navigation="login" />
+        <ButtonProfile text="Gestion des favoris" navigation="home" />
+        <ButtonProfile text="Carte bancaire" navigation="home" />
+        <ButtonProfile text="Gestion des notifications" navigation="home" />
+        <ButtonProfile text="Position" navigation="home" />
         <DarkThemeToggle />
         <TabBarBottom text="profile" />
       </Margin>
