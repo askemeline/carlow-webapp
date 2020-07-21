@@ -1,9 +1,10 @@
 import React from "react";
+
 import TabBarBottom from "../components/TabBarBottom.jsx";
 import ButtonProfile from "../components/ButtonProfile.jsx";
-import ButtonProfileSwitch from "../components/ButtonProfileSwitch.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
+import DarkThemeToggle from "../services/DarkThemeToggle.js";
 
 const ProfilePage = () => {
   return (
@@ -18,7 +19,7 @@ const ProfilePage = () => {
         <ButtonProfile text="Carte bancaire" navigation="login" />
         <ButtonProfile text="Gestion des notifications" navigation="login" />
         <ButtonProfile text="Position" navigation="login" />
-        <ButtonProfileSwitch text="Activer le theme sombre" />
+        <DarkThemeToggle />
         <TabBarBottom text="profile" />
       </Margin>
     </>

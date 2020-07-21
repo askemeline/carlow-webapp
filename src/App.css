@@ -75,4 +75,6 @@ html, body, #root, .App {
     cursor: pointer;
     transition: color 0.3s ease;
     margin-right: 2px;
+    align-items: center;
+    display: flex;
   }
