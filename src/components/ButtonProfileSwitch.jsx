@@ -14,7 +14,7 @@ const Button = styled.div`
   text-decoration: none;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: flex;
   opacity: 0.86;
   position: relative;
 `;
@@ -27,7 +27,20 @@ const ButtonProfile = ({ text, navigation = "", ...otherProps }) => {
       type="text"
       {...otherProps}
     >
-      {text} <Switch className="chevron-right" />
+      {text} 
+      <div className="toggle-container">
+          <span /*style={{ color: darkMode ? "grey" : "yellow" }}*/>☀︎</span>
+          <span className="toggle">
+            <input
+              //checked={darkMode}
+              //onChange={() => setDarkMode(prevMode => !prevMode)}
+              id="checkbox"
+              className="checkbox"
+              type="checkbox"
+            />
+            <label htmlFor="checkbox" />
+          </span>
+      </div>
     </Button>
   );
 };
