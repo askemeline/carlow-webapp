@@ -9,8 +9,7 @@ import Margin from "../components/forms/Margin.jsx";
 import AuthAPI from "../services/authAPI.js";
 import AuthContext from "../context/AuthContext.js";
 import Themes from "../constants/Themes";
-import * as ReactBootStrap from 'react-bootstrap';
-
+import Loading from "../components/Loading.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -26,6 +25,7 @@ const LoginPage = ({ history }) => {
     username: "",
     password: "",
   });
+
   const [hasError, setHasError] = useState(false);
 
   const handleChange = ({ currentTarget }) => {
@@ -36,75 +36,58 @@ const LoginPage = ({ history }) => {
   const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
-    setHasError(false);
-
     event.preventDefault();
+    setHasError(false);
     try {
       await AuthAPI.authenticate(credentials);
       setHasError(true);
-
-      // setError("Indentifiant invalide");
       setIsAuthenticated(true);
       const data = await AuthAPI.findUser();
       console.log(data.username);
       history.replace("/home");
     } catch (e) {
       setHasError(false);
-
       setError("Indentifiant invalide");
       console.log(`Axios request failed: ${e}`);
     }
   };
 
   return (
-    
-        <>
-          <BackgroundSemicircle text="Se connecter" />
-          <Margin heightProps="54%">
-            <form onSubmit={handleSubmit}>
-              <Field
-                name="username"
-                placeholder="Email"
-                type="email"
-                onChange={handleChange}
-                value={credentials.username}
-                errorInput={error}
-                required
-              />
-              <Field
-                value={credentials.password}
-                name="password"
-                type="password"
-                placeholder="Mot de passe"
-                onChange={handleChange}
-                errorInput={error}
-                required
-              />
-              <Button text="Connexion" type="submit" />
-              <Themes.Error>{error}</Themes.Error>
-              <>
-              {hasError ? (
-                <ReactBootStrap.Spinner animation="border" variant="danger" role="status">
-                  <span className="sr-only">Loading...</span>
-                </ReactBootStrap.Spinner>
-                ) : (
-                <div></div>
-              )}
-              </>
-              <Container>
-                <ButtonBottomText
-                  text="Créer un compte"
-                  navigation="register"
-                />
-                <ButtonBottomText
-                  text="Mot de passe oublié"
-                  navigation="passwordforgot"
-                />
-              </Container>
-            </form>
-          </Margin>
-        </>
-      
+    <>
+      <BackgroundSemicircle text="Se connecter" />
+      <Margin heightProps="54%">
+        <form onSubmit={handleSubmit}>
+          <Field
+            name="username"
+            placeholder="Email"
+            type="email"
+            onChange={handleChange}
+            value={credentials.username}
+            errorInput={error}
+            required
+          />
+          <Field
+            value={credentials.password}
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            onChange={handleChange}
+            errorInput={error}
+            required
+          />
+          <Button text="Connexion" type="submit" />
+          <Themes.Error>{error}</Themes.Error>
+          {hasError && !error ? <Loading /> : null}
+          <Container>
+            <ButtonBottomText text="Créer un compte" navigation="register" />
+            <ButtonBottomText
+              text="Mot de passe oublié"
+              navigation="passwordforgot"
+            />
+          </Container>
+        </form>
+      </Margin>
+    </>
   );
 };
 

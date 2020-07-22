@@ -21,10 +21,12 @@ const inputBackground = theme("theme", {
   light: "#F5F8F9",
   dark: "#1C1C1E",
 });
+
 const buttonColor = theme("theme", {
   light: "#273539",
   dark: "#3D3D41",
 });
+
 const buttonColorText = theme("theme", {
   light: "#F5F8F9",
   dark: "#F5F8F9",
@@ -56,6 +58,16 @@ const TextHeader = styled.h1`
   text-align: center;
 `;
 
+const TopTextHeader = styled.button`
+  color: #fff;
+  font-size: 14px;
+  text-align: right;
+  margin-bottom: 12px;
+  text-decoration: underline;
+  border: none;
+  background-color: #1f292c;
+`;
+
 const SubTextHeader = styled.p`
   text-decoration: none;
   color: #fff;
@@ -83,7 +95,7 @@ const ButtonProfile = styled(Link)`
   border-color: ${borderColorInput};
 `;
 
-const ButtonProfileDisabled = styled(Link)`
+const ButtonProfileDisabled = styled.button`
   pointer-events: none;
   background-color: ${inputBackground};
   border: none;
@@ -135,6 +147,7 @@ const Input = styled.input`
     color: ${textColor};
   }
 `;
+
 const Button = styled.button`
   background-color: ${buttonColor};
   color: ${buttonColorText};
@@ -165,6 +178,7 @@ const Title = styled.h1`
   font-size: 24px;
   margin-bottom: 10px;
 `;
+
 const Text = styled.p`
   color: ${textColor};
   font-size: 16px;
@@ -174,8 +188,24 @@ const Text = styled.p`
 const Error = styled.p`
   color: red;
 `;
+
 const Succes = styled.p`
   color: green;
+`;
+
+const FlexStart = styled.div`
+  margin-bottom: auto;
+  margin-top: -10px;
+`;
+
+const FlexEnd = styled.div`
+  position: relative;
+  bottom: -230px;
+  z-index: 99;
+`;
+const Flex = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export default {
@@ -199,4 +229,8 @@ export default {
   Text,
   Error,
   Succes,
+  TopTextHeader,
+  FlexStart,
+  FlexEnd,
+  Flex,
 };

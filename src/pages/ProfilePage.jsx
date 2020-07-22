@@ -10,7 +10,7 @@ import DarkThemeToggle from "../services/DarkThemeToggle.js";
 const ProfilePage = () => {
   return (
     <>
-      <BackgroundSemicircle text="Mon profil" />
+      <BackgroundSemicircle text="Mon profil" topText="Déconnexion" />
       <Margin>
         <ButtonProfile
           text="Informations personnelles"

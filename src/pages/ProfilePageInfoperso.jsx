@@ -1,49 +1,48 @@
 import React, { useState, useEffect } from "react";
-import TabBarBottom from "../components/TabBarBottom.jsx";
-import styled from "styled-components";
 
+import TabBarBottom from "../components/TabBarBottom.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import BackgroundDarkMode from "../components/BackgroundDarkMode.jsx";
 import AuthAPI from "../services/authAPI.js";
 import ButtonProfile from "../components/ButtonProfile.jsx";
-
-const FlexStart = styled.div`
-  margin-bottom: auto;
-  margin-top: -10px;
-`;
+import Themes from "../constants/Themes";
+import Field from "../components/forms/Field.jsx";
+import Loading from "../components/Loading.jsx";
 
 const ProfilePage = () => {
   const [data, setData] = useState({});
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
+    setHasError(true);
     const res = await AuthAPI.findUser();
-    console.log(res);
     setData(res);
+    setHasError(false);
   };
-
-  const datas = Object.entries(data)
-    .filter(([key]) => key !== "id" && key !== "roles")
-    .map(([key, value]) => {
-      return (
-        <>
-          <ButtonProfile text={value} navigation="home" />
-        </>
-      );
-    });
 
   return (
     <>
       <Margin heightProps="50%">
-        <FlexStart>
+        <Themes.FlexStart>
           <HeaderButton icon="back" text="Retour" navigation="profile" />
-        </FlexStart>
-        {datas}
-        <BackgroundDarkMode />
+        </Themes.FlexStart>
+        {hasError ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Loading />
+          </div>
+        ) : (
+          <>
+            <ButtonProfile text={data.email} />
+            <ButtonProfile text={data.firstName} />
+            <ButtonProfile text={data.lastName} />
+            <BackgroundDarkMode />
+          </>
+        )}
         <TabBarBottom text="profile" />
       </Margin>
     </>
