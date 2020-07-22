@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 
 import Margin from "./forms/Margin.jsx";
 import HeaderButton from "./forms/HeaderButton.jsx";
+import Themes from "../constants/Themes";
 
 const Text = styled.p`
   margin-top: 20px;
@@ -13,10 +13,10 @@ const Text = styled.p`
 
 const Error = () => {
   return (
-    <Margin>
+    <Margin heightProps="50%">
       <HeaderButton icon="back" text="Retour" navigation="home" />
-      <Text>Erreur 404</Text>
-      <Text>Oups cette page n'existe pas</Text>
+      <Themes.Title>Erreur 404</Themes.Title>
+      <Themes.Text>Oups cette page n'existe pas</Themes.Text>
     </Margin>
   );
 };

@@ -199,8 +199,7 @@ const FlexStart = styled.div`
 `;
 
 const FlexEnd = styled.div`
-  position: relative;
-  bottom: -230px;
+  margin-top: auto;
   z-index: 99;
 `;
 const Flex = styled.div`

@@ -68,15 +68,28 @@ function isAuthenticated() {
   return false;
 }
 
+/**
+ * Permet d'avoir l'id user
+ */
+
 function findUser() {
   const token = window.localStorage.getItem("authToken");
-
   var decoded = jwt_decode(token);
-
   const id = decoded.id;
   return axios
     .get(`https://api-carlow.herokuapp.com/api/users/${id}`)
     .then((response) => response.data);
+}
+
+/**
+ * Permet d'avoir l'id user
+ */
+
+function getId() {
+  const token = window.localStorage.getItem("authToken");
+  var decoded = jwt_decode(token);
+  const id = decoded.id;
+  return id;
 }
 
 export default {
@@ -85,4 +98,5 @@ export default {
   setup,
   isAuthenticated,
   findUser,
+  getId,
 };

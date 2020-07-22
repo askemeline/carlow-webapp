@@ -12,10 +12,7 @@ const ProfilePage = () => {
     <>
       <BackgroundSemicircle text="Mon profil" topText="Déconnexion" />
       <Margin>
-        <ButtonProfile
-          text="Informations personnelles"
-          navigation="info-perso"
-        />
+        <ButtonProfile text="Informations personnelles" navigation="infos" />
         <ButtonProfile text="Gestion des favoris" navigation="home" />
         <ButtonProfileDisabled text="Carte bancaire" />
         <ButtonProfileDisabled text="Gestion des notifications" />

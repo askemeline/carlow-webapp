@@ -19,7 +19,6 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import ProfilePageInfoperso from "./pages/ProfilePageInfoperso.jsx";
 import DarkThemeProvider from "./services/DarkThemeProvider";
 import Themes from "./constants/Themes";
-import ChangeConfidentialProfile from "./pages/ChangeConfidentialProfile.jsx";
 
 AuthAPI.setup();
 
@@ -37,10 +36,10 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     AuthAPI.isAuthenticated()
   );
+  console.log(isAuthenticated);
   console.log("status", isAuthenticated);
 
   const isMobile = useMediaQuery({ maxDeviceWidth: 760 });
-
   return (
     <>
       {!isMobile ? (
@@ -56,20 +55,20 @@ function App() {
             <DarkThemeProvider>
               <Themes.Container>
                 <Switch>
-                  <Route path="/login" component={LoginPage} />
-                  <PrivateRoute path="/home" component={HomePage} />
+                  <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/register" component={RegisterPage} />
-                  <Route exact path="/profile" component={ProfilePage} />
+                  <PrivateRoute path="/home" component={HomePage} />
                   <Route
                     exact
-                    path="/info-perso"
+                    path="/passwordforgot"
+                    component={PasswordForgot}
+                  />
+                  <Route exact path="/profile" component={ProfilePage} />
+                  <PrivateRoute
+                    path="/infos"
                     component={ProfilePageInfoperso}
                   />
-                  <Route path="/passwordforgot" component={PasswordForgot} />
-                  <Route
-                    path="/change-confidential"
-                    component={ChangeConfidentialProfile}
-                  />
+
                   <Route component={Error} />
                 </Switch>
                 {isAuthenticated ? (
