@@ -3,9 +3,11 @@
   margin: 0;
   padding: 0;
 }
-p{
-  margin: unset !important;
-}
+
+p {
+     margin-top: unset !important; 
+    margin-bottom: unset !important;
+  }
 
 html, body, #root, .App {
   height: 100%;
