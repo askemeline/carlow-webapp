@@ -19,7 +19,6 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import ProfilePageInfoperso from "./pages/ProfilePageInfoperso.jsx";
 import DarkThemeProvider from "./services/DarkThemeProvider";
 import Themes from "./constants/Themes";
-import ChangeConfidentialProfile from "./pages/ChangeConfidentialProfile.jsx";
 
 AuthAPI.setup();
 
@@ -40,7 +39,6 @@ function App() {
   console.log("status", isAuthenticated);
 
   const isMobile = useMediaQuery({ maxDeviceWidth: 760 });
-
   return (
     <>
       {!isMobile ? (
@@ -66,10 +64,7 @@ function App() {
                     component={ProfilePageInfoperso}
                   />
                   <Route path="/passwordforgot" component={PasswordForgot} />
-                  <Route
-                    path="/change-confidential"
-                    component={ChangeConfidentialProfile}
-                  />
+
                   <Route component={Error} />
                 </Switch>
                 {isAuthenticated ? (
