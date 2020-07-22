@@ -1,5 +1,6 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 
 /**
  * Déconnexion (supression du token du localstorage et sur axios)
@@ -67,9 +68,21 @@ function isAuthenticated() {
   return false;
 }
 
+function findUser() {
+  const token = window.localStorage.getItem("authToken");
+
+  var decoded = jwt_decode(token);
+
+  const id = decoded.id;
+  return axios
+    .get(`https://api-carlow.herokuapp.com/api/users/${id}`)
+    .then((response) => response.data);
+}
+
 export default {
   authenticate,
   logout,
   setup,
   isAuthenticated,
+  findUser,
 };

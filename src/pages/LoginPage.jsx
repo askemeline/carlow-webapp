@@ -38,6 +38,8 @@ const LoginPage = ({ history }) => {
       await AuthAPI.authenticate(credentials);
       // setError("Indentifiant invalide");
       setIsAuthenticated(true);
+      const data = await AuthAPI.findUser();
+      console.log(data.username);
       history.replace("/home");
     } catch (e) {
       setError("Indentifiant invalide");

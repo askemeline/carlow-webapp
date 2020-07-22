@@ -1,41 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TabBarBottom from "../components/TabBarBottom.jsx";
 import styled from "styled-components";
 
-import Field from "../components/forms/Field.jsx";
-import Button from "../components/forms/Button.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import BackgroundDarkMode from "../components/BackgroundDarkMode.jsx";
+import AuthAPI from "../services/authAPI.js";
+import ButtonProfile from "../components/ButtonProfile.jsx";
 
 const FlexStart = styled.div`
   margin-bottom: auto;
   margin-top: -10px;
 `;
 
-const FlexEnd = styled.div`
-  margin-top: auto;
-`;
-
 const ProfilePage = () => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const res = await AuthAPI.findUser();
+    console.log(res);
+    setData(res);
+  };
+
+  const datas = Object.entries(data)
+    .filter(([key]) => key !== "id" && key !== "roles")
+    .map(([key, value]) => {
+      return (
+        <>
+          <ButtonProfile text={value} navigation="home" />
+        </>
+      );
+    });
+
   return (
     <>
-      <Margin heightProps="80%">
+      <Margin heightProps="50%">
         <FlexStart>
-          <HeaderButton icon="back" text="Retour" navigation="login" />
+          <HeaderButton icon="back" text="Retour" navigation="profile" />
         </FlexStart>
-        <Field name="firstname" placeholder="Prénom" type="email" />
-        <Field name="lastname" placeholder="Nom" type="email" />
-        <Field name="email" placeholder="Email" type="email" required />
-        <Field
-          name="password"
-          type="password"
-          placeholder="Mot de passe"
-          required
-        />
-        <FlexEnd>
-          <Button text="Valider" type="submit" />
-        </FlexEnd>
+        {datas}
         <BackgroundDarkMode />
         <TabBarBottom text="profile" />
       </Margin>
