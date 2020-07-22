@@ -83,6 +83,26 @@ const ButtonProfile = styled(Link)`
   border-color: ${borderColorInput};
 `;
 
+const ButtonProfileDisabled = styled(Link)`
+  pointer-events: none;
+  background-color: ${inputBackground};
+  border: none;
+  color: ${textColor};
+  border-radius: 5px;
+  padding: 13px 28px;
+  margin: 10px 0;
+  width: 80%;
+  text-align: left;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  opacity: 0.5;
+  position: relative;
+  border: 0.5px solid;
+  border-color: ${borderColorInput};
+`;
+
 const ToggleDarkMode = styled.div`
   background-color: ${inputBackground};
   border: none;
@@ -166,6 +186,7 @@ export default {
   SubTextHeader,
   BackgroundColorHeader,
   ButtonProfile,
+  ButtonProfileDisabled,
   ToggleDarkMode,
   Input,
   buttonColor,
