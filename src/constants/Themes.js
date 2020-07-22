@@ -55,6 +55,13 @@ const TextHeader = styled.h1`
   font-size: 36px;
   text-align: center;
 `;
+const TopTextHeader = styled(Link)`
+  color: #fff;
+  font-size: 14px;
+  text-align: right;
+  margin-bottom: 12px;
+  text-decoration: revert;
+`;
 
 const SubTextHeader = styled.p`
   text-decoration: none;
@@ -199,4 +206,5 @@ export default {
   Text,
   Error,
   Succes,
+  TopTextHeader,
 };
