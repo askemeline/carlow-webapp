@@ -17,7 +17,7 @@ const ProfilePage = () => {
           navigation="info-perso"
         />
         <ButtonProfile text="Gestion des favoris" navigation="home" />
-        <ButtonProfile text="Carte bancaire" navigation="home" />
+        <ButtonProfileDisabled text="Carte bancaire" />
         <ButtonProfileDisabled text="Gestion des notifications" />
         <ButtonProfileDisabled text="Position" />
         <DarkThemeToggle />
