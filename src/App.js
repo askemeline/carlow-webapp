@@ -36,6 +36,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     AuthAPI.isAuthenticated()
   );
+  console.log(isAuthenticated);
   console.log("status", isAuthenticated);
 
   const isMobile = useMediaQuery({ maxDeviceWidth: 760 });
@@ -70,6 +71,15 @@ function App() {
 
                   <Route component={Error} />
                 </Switch>
+                {isAuthenticated ? (
+                  <Route exact path="/">
+                    <Redirect to="/home" />
+                  </Route>
+                ) : (
+                  <Route exact path="/">
+                    <Redirect to="/login" />
+                  </Route>
+                )}
               </Themes.Container>
             </DarkThemeProvider>
           </ReduxProvider>
