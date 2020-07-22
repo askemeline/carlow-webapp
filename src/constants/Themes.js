@@ -58,12 +58,14 @@ const TextHeader = styled.h1`
   text-align: center;
 `;
 
-const TopTextHeader = styled(Link)`
+const TopTextHeader = styled.button`
   color: #fff;
   font-size: 14px;
   text-align: right;
   margin-bottom: 12px;
-  text-decoration: revert;
+  text-decoration: underline;
+  border: none;
+  background-color: #1f292c;
 `;
 
 const SubTextHeader = styled.p`
@@ -93,7 +95,7 @@ const ButtonProfile = styled(Link)`
   border-color: ${borderColorInput};
 `;
 
-const ButtonProfileDisabled = styled(Link)`
+const ButtonProfileDisabled = styled.button`
   pointer-events: none;
   background-color: ${inputBackground};
   border: none;

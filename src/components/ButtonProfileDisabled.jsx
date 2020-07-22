@@ -5,11 +5,7 @@ import Themes from "../constants/Themes";
 
 const ButtonProfileDisabled = ({ text = "", ...otherProps }) => {
   return (
-    <Themes.ButtonProfileDisabled
-      className="btn btn-warning"
-      type="text"
-      {...otherProps}
-    >
+    <Themes.ButtonProfileDisabled {...otherProps}>
       {text} <FaChevronRight className="chevron-right" />
     </Themes.ButtonProfileDisabled>
   );

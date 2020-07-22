@@ -8,22 +8,21 @@ import AuthAPI from "../services/authAPI.js";
 import ButtonProfile from "../components/ButtonProfile.jsx";
 import Themes from "../constants/Themes";
 import Field from "../components/forms/Field.jsx";
+import Loading from "../components/Loading.jsx";
 
 const ProfilePage = () => {
   const [data, setData] = useState({});
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
+    setHasError(true);
     const res = await AuthAPI.findUser();
-    console.log(res);
     setData(res);
-  };
-
-  const handle = () => {
-    alert(`HLEELELLEL ${data.email}`);
+    setHasError(false);
   };
 
   return (
@@ -32,11 +31,18 @@ const ProfilePage = () => {
         <Themes.FlexStart>
           <HeaderButton icon="back" text="Retour" navigation="profile" />
         </Themes.FlexStart>
-
-        <ButtonProfile text={data.email} onClick={handle} />
-        <ButtonProfile text={data.firstName} />
-        <ButtonProfile text={data.lastName} />
-        <BackgroundDarkMode />
+        {hasError ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Loading />
+          </div>
+        ) : (
+          <>
+            <ButtonProfile text={data.email} />
+            <ButtonProfile text={data.firstName} />
+            <ButtonProfile text={data.lastName} />
+            <BackgroundDarkMode />
+          </>
+        )}
         <TabBarBottom text="profile" />
       </Margin>
     </>
