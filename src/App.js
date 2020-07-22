@@ -54,28 +54,22 @@ function App() {
             <DarkThemeProvider>
               <Themes.Container>
                 <Switch>
-                  <Route path="/login" component={LoginPage} />
-                  <PrivateRoute path="/home" component={HomePage} />
+                  <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/register" component={RegisterPage} />
-                  <Route exact path="/profile" component={ProfilePage} />
+                  <PrivateRoute path="/home" component={HomePage} />
                   <Route
                     exact
-                    path="/info-perso"
+                    path="/passwordforgot"
+                    component={PasswordForgot}
+                  />
+                  <Route exact path="/profile" component={ProfilePage} />
+                  <PrivateRoute
+                    path="/infos"
                     component={ProfilePageInfoperso}
                   />
-                  <Route path="/passwordforgot" component={PasswordForgot} />
 
                   <Route component={Error} />
                 </Switch>
-                {isAuthenticated ? (
-                  <Route exact path="/">
-                    <Redirect to="/home" />
-                  </Route>
-                ) : (
-                  <Route exact path="/">
-                    <Redirect to="/login" />
-                  </Route>
-                )}
               </Themes.Container>
             </DarkThemeProvider>
           </ReduxProvider>

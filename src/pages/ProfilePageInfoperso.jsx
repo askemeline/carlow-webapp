@@ -10,12 +10,14 @@ import Themes from "../constants/Themes";
 import Loading from "../components/Loading.jsx";
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
+import { useHistory } from "react-router-dom";
 
 const ProfilePage = () => {
   const [data, setData] = useState({});
   const [hasError, setHasError] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  let history = useHistory();
 
   useEffect(() => {
     getData();
@@ -36,28 +38,23 @@ const ProfilePage = () => {
     const { name, value } = currentTarget;
     setUser({ ...user, [name]: value });
   };
-  console.log(user);
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
   const handleSubmit = async (event) => {
-    alert("click");
-    console.log("heheh");
     event.preventDefault();
     const id = await AuthAPI.getId();
-    console.log(id);
     try {
       await axios.put(`https://api-carlow.herokuapp.com/api/users/${id}`, user);
-      await AuthAPI.logout();
-      await AuthAPI.isAuthenticated(user);
-      setHasError(true);
-      setSuccess("Vos informations ont bien été mis a jour");
+      AuthAPI.logout();
+      setSuccess(
+        "Vos informations ont bien été mises à jour, veuillez vous reconnecter."
+      );
+      await delay(5000);
+      history.push("/login");
     } catch (error) {
       setHasError(false);
       setError("Une erreur est survenue");
-      console.log(`Axios request failed: ${error}`);
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
     }
-    console.log(id);
   };
 
   return (
