@@ -3,7 +3,7 @@ import { FaChevronRight } from "react-icons/fa";
 
 import Themes from "../constants/Themes";
 
-const ButtonProfile = ({ text = "", navigation, ...otherProps }) => {
+const ButtonProfile = ({ text = "", navigation = "", ...otherProps }) => {
   return (
     <Themes.ButtonProfile
       to={`${navigation}`}

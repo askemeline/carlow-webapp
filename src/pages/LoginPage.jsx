@@ -9,8 +9,7 @@ import Margin from "../components/forms/Margin.jsx";
 import AuthAPI from "../services/authAPI.js";
 import AuthContext from "../context/AuthContext.js";
 import Themes from "../constants/Themes";
-import * as ReactBootStrap from 'react-bootstrap';
-
+import Loading from "../components/Loading.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -57,54 +56,41 @@ const LoginPage = ({ history }) => {
   };
 
   return (
-    
-        <>
-          <BackgroundSemicircle text="Se connecter" />
-          <Margin heightProps="54%">
-            <form onSubmit={handleSubmit}>
-              <Field
-                name="username"
-                placeholder="Email"
-                type="email"
-                onChange={handleChange}
-                value={credentials.username}
-                errorInput={error}
-                required
-              />
-              <Field
-                value={credentials.password}
-                name="password"
-                type="password"
-                placeholder="Mot de passe"
-                onChange={handleChange}
-                errorInput={error}
-                required
-              />
-              <Button text="Connexion" type="submit" />
-              <Themes.Error>{error}</Themes.Error>
-              <>
-              {hasError ? (
-                <ReactBootStrap.Spinner animation="border" variant="danger" role="status">
-                  <span className="sr-only">Loading...</span>
-                </ReactBootStrap.Spinner>
-                ) : (
-                <div></div>
-              )}
-              </>
-              <Container>
-                <ButtonBottomText
-                  text="Créer un compte"
-                  navigation="register"
-                />
-                <ButtonBottomText
-                  text="Mot de passe oublié"
-                  navigation="passwordforgot"
-                />
-              </Container>
-            </form>
-          </Margin>
-        </>
-      
+    <>
+      <BackgroundSemicircle text="Se connecter" />
+      <Margin heightProps="54%">
+        <form onSubmit={handleSubmit}>
+          <Field
+            name="username"
+            placeholder="Email"
+            type="email"
+            onChange={handleChange}
+            value={credentials.username}
+            errorInput={error}
+            required
+          />
+          <Field
+            value={credentials.password}
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            onChange={handleChange}
+            errorInput={error}
+            required
+          />
+          <Button text="Connexion" type="submit" />
+          <Themes.Error>{error}</Themes.Error>
+          {hasError ? <Loading /> : null}
+          <Container>
+            <ButtonBottomText text="Créer un compte" navigation="register" />
+            <ButtonBottomText
+              text="Mot de passe oublié"
+              navigation="passwordforgot"
+            />
+          </Container>
+        </form>
+      </Margin>
+    </>
   );
 };
 

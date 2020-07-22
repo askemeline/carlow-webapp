@@ -19,6 +19,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import ProfilePageInfoperso from "./pages/ProfilePageInfoperso.jsx";
 import DarkThemeProvider from "./services/DarkThemeProvider";
 import Themes from "./constants/Themes";
+import ChangeConfidentialProfile from "./pages/ChangeConfidentialProfile.jsx";
 
 AuthAPI.setup();
 
@@ -65,6 +66,10 @@ function App() {
                     component={ProfilePageInfoperso}
                   />
                   <Route path="/passwordforgot" component={PasswordForgot} />
+                  <Route
+                    path="/change-confidential"
+                    component={ChangeConfidentialProfile}
+                  />
                   <Route component={Error} />
                 </Switch>
                 {isAuthenticated ? (
