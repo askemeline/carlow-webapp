@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
+
 import Field from "./forms/Field.jsx";
 import Button from "./forms/Button.jsx";
+import Themes from "../constants/Themes";
+import Loading from "./Loading.jsx";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -44,7 +48,33 @@ const Text = styled.p`
   padding-bottom: 20px;
 `;
 
+///api/place/autocomplete/25 avenue victor hugo
 const ModalFavoris = ({ isShowing, hide, fav }) => {
+  const [value, setValue] = useState("");
+
+  const [hasError, setHasError] = useState(false);
+
+  console.log(value);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    console.log(value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(value);
+
+    try {
+      await axios.get(
+        "https://api-carlow.herokuapp.com/api/place/autocomplete/place Bernard Delaunay"
+      );
+      console.log("success");
+    } catch (e) {
+      console.log(`Axios request failed: ${e}`);
+      console.log(e.response);
+    }
+  };
+
   return (
     <>
       {isShowing ? (
@@ -52,15 +82,24 @@ const ModalFavoris = ({ isShowing, hide, fav }) => {
           <ModalOverlay />
           <ModalWrapper aria-modal aria-hidden tabIndex={-1} role="dialog">
             <Modal>
-              <ModalHeader></ModalHeader>
-              <Text>Vous souhaitez ajouter un {fav.toLowerCase()} ?</Text>
-              <Field name="search" type="search" required />
-              <Button
-                text="Enregister"
-                type="submit"
-                onClick={hide}
-                style={{ marginTop: 100 }}
-              />
+              <form onSubmit={handleSubmit}>
+                <ModalHeader />
+                <Text>Vous souhaitez ajouter un {fav.toLowerCase()} ?</Text>
+                <Field
+                  name="search"
+                  type="search"
+                  placeholder="Ajouter une destination"
+                  onChange={handleChange}
+                  required
+                />
+                {hasError ? <Loading /> : null}
+                <Button
+                  text="Enregister"
+                  type="submit"
+                  onClick={hide}
+                  style={{ marginTop: 100 }}
+                />
+              </form>
             </Modal>
           </ModalWrapper>
         </>

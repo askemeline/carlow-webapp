@@ -19,6 +19,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import ProfilePageInfoperso from "./pages/ProfilePageInfoperso.jsx";
 import DarkThemeProvider from "./services/DarkThemeProvider";
 import Themes from "./constants/Themes";
+import FilterPage from "./pages/FilterPage.jsx";
 
 AuthAPI.setup();
 
@@ -69,11 +70,12 @@ function App() {
                     component={ProfilePageInfoperso}
                   />
 
+                  <PrivateRoute path="/filter" component={FilterPage} />
                   <Route component={Error} />
                 </Switch>
                 {isAuthenticated ? (
                   <Route exact path="/">
-                    <Redirect to="/home" />
+                    <Redirect to="/filter" />
                   </Route>
                 ) : (
                   <Route exact path="/">
