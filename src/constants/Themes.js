@@ -152,6 +152,7 @@ const Input = styled.input`
   border: 0.5px solid;
   border-radius: 4px;
   color: ${textColor};
+  height: 50px;
   ::placeholder {
     color: ${textColor};
   }
