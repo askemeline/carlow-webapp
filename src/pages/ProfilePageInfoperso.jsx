@@ -106,8 +106,8 @@ const ProfilePage = () => {
             </form>
           </>
         )}
-        <TabBarBottom text="profile" />
       </Margin>
+      <TabBarBottom text="profile" />
     </>
   );
 };

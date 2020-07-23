@@ -9,7 +9,12 @@ const Flex = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const BackgroundSemicircle = ({ text, subText = "", topText = "" }) => {
+const BackgroundSemicircle = ({
+  text,
+  subText = "",
+  topText = "",
+  color = "",
+}) => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
   let history = useHistory();
@@ -28,8 +33,10 @@ const BackgroundSemicircle = ({ text, subText = "", topText = "" }) => {
           </Themes.TopTextHeader>
         ) : null}
 
-        <Themes.TextHeader>{text}</Themes.TextHeader>
-        <Themes.SubTextHeader>{subText}</Themes.SubTextHeader>
+        <Themes.TextHeader style={{ color: color }}>{text}</Themes.TextHeader>
+        <Themes.SubTextHeader style={{ color: color }}>
+          {subText}
+        </Themes.SubTextHeader>
       </Flex>
     </Themes.BackgroundColorHeader>
   );

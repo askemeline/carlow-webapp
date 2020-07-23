@@ -1,8 +1,20 @@
 import React from "react";
-import FavorisInput from "../components/FavorisInput.jsx";
+import InputSearch from "../components/InputSearch.jsx";
 import TabBarBottom from "../components/TabBarBottom.jsx";
 
 import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
+import Margin from "../components/forms/Margin.jsx";
+import styled from "styled-components";
+import FavorisCard from "../components/FavorisCard.jsx";
+
+const Text = styled.p`
+  color: #ea9fa2;
+  font-size: 12px;
+  margin-top: 20px;
+  padding: 20px 0 30px 0;
+`;
+
+const favs = ["Domicile", "Travail", "Favoris", "Historique"];
 
 const HomePage = () => {
   return (
@@ -10,13 +22,19 @@ const HomePage = () => {
       <BackgroundSemicircle
         text="16,97 €"
         subText=" d’économie depuis Carlow !"
+        color="#F3D2D3"
       />
-      <p>Score calculé selon vos comparaisons et selon le VTC le plus cher</p>
-      <FavorisInput
-        type="search"
-        name="search"
-        placeholder="Votre destination"
-      />
+      <Margin>
+        <Text>
+          Score calculé selon vos comparaisons et selon le VTC le plus cher
+        </Text>
+        <InputSearch
+          type="search"
+          name="search"
+          placeholder="Votre destination"
+        />
+        <FavorisCard favoris={favs} />
+      </Margin>
       <TabBarBottom text="home" />
     </>
   );
