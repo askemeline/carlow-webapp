@@ -32,6 +32,15 @@ const buttonColorText = theme("theme", {
   dark: "#F5F8F9",
 });
 
+const favButtonColorText = theme("theme", {
+  light: "#273539",
+  dark: "#FFFFFF",
+});
+const favButtonBackgroundcolor = theme("theme", {
+  light: "#e1e6e8",
+  dark: "#3D3D41",
+});
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -83,7 +92,7 @@ const ButtonProfile = styled(Link)`
   border-radius: 5px;
   padding: 13px 28px;
   margin: 10px 0;
-  width: 80%;
+  width: 90%;
   text-align: left;
   text-decoration: none;
   margin-left: auto;
@@ -103,7 +112,7 @@ const ButtonProfileDisabled = styled.button`
   border-radius: 5px;
   padding: 13px 28px;
   margin: 10px 0;
-  width: 80%;
+  width: 90%;
   text-align: left;
   text-decoration: none;
   margin-left: auto;
@@ -122,7 +131,7 @@ const ToggleDarkMode = styled.div`
   border-radius: 5px;
   padding: 13px 28px;
   margin: 10px 0;
-  width: 80%;
+  width: 90%;
   text-align: left;
   text-decoration: none;
   margin-left: auto;
@@ -143,6 +152,7 @@ const Input = styled.input`
   border: 0.5px solid;
   border-radius: 4px;
   color: ${textColor};
+  height: 50px;
   ::placeholder {
     color: ${textColor};
   }
@@ -202,9 +212,21 @@ const FlexEnd = styled.div`
   margin-top: auto;
   z-index: 99;
 `;
+
 const Flex = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const ButtonFavoris = styled.button`
+  width: 120px;
+  height: 45px;
+  border-radius: 50px;
+  background-color: ${favButtonBackgroundcolor};
+  color: ${favButtonColorText};
+  text-decoration: none;
+  border: none;
+  margin: 10px;
 `;
 
 export default {
@@ -232,4 +254,7 @@ export default {
   FlexStart,
   FlexEnd,
   Flex,
+  ButtonFavoris,
+  favButtonColorText,
+  favButtonBackgroundcolor,
 };

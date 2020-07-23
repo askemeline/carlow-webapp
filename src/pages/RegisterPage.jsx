@@ -9,6 +9,7 @@ import HeaderButton from "../components/forms/HeaderButton.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import Themes from "../constants/Themes";
+import Loading from "../components/Loading.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -37,19 +38,23 @@ const RegisterPage = (props) => {
     setUser({ ...user, [name]: value });
   };
 
+  const [hasError, setHasError] = useState(false);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setHasError(false);
     console.log("user", user);
     try {
       await axios.post("https://api-carlow.herokuapp.com/api/users", user);
+      setHasError(true);
       setSuccess(
         "Votre inscription a été pris en compte vous pouvez maintenant vous connecter"
       );
       await delay(5000);
       history.push("/login");
     } catch (e) {
+      setHasError(false);
       setError("Il semblerait que cet email existe déjà");
-
       console.log(`Axios request failed: ${e}`);
     }
   };
@@ -104,6 +109,7 @@ const RegisterPage = (props) => {
           ) : (
             <Themes.Succes>{success}</Themes.Succes>
           )}
+          {hasError ? <Loading /> : null}
           <Container>
             <ButtonBottomText text="J'ai déjà un compte" navigation="login" />
           </Container>

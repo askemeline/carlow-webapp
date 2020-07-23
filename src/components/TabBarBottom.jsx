@@ -12,7 +12,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   height: 80px;
-  margin: 0 -20px;
+  /* margin: 0 -20px; */
   font-size: 16px;
   box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
   justify-content: space-around;
