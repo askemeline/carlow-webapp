@@ -3,11 +3,11 @@ import Themes from "../constants/Themes";
 
 const ButtonItem = ({ colorText = "", colorBackGround = "", value = "" }) => {
   return (
-    <Themes.Button
+    <Themes.ButtonFilter
       style={{ color: colorText, backgroundColor: colorBackGround }}
     >
       {value}
-    </Themes.Button>
+    </Themes.ButtonFilter>
   );
 };
 
