@@ -260,7 +260,7 @@ const Modal = styled.div`
   background: ${backgroundColor};
   position: fixed;
   border-radius: 3px;
-  max-width: 500px;
+  width: 100%;
   padding: 2rem;
   bottom: 0;
 `;
