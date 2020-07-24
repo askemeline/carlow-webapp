@@ -41,6 +41,11 @@ const favButtonBackgroundcolor = theme("theme", {
   dark: "#3D3D41",
 });
 
+const vtc = theme("theme", {
+  light: "#FFFFFF",
+  dark: "#1C1C1E",
+});
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -264,7 +269,28 @@ const ModalHeader = styled.div`
   justify-content: flex-end;
 `;
 
+const ButtonFilter = styled.button`
+  width: 150px;
+  height: 45px;
+  border-radius: 50px;
+  background-color: ${favButtonBackgroundcolor};
+  color: ${favButtonColorText};
+  text-decoration: none;
+  border: none;
+  margin: 10px;
+  text-transform: capitalize;
+`;
+
+const CardVTC = styled.div`
+  background-color: ${vtc};
+  margin: 20px -20px -80px -20px;
+  padding: 20px 20px 0 20px;
+`;
+
 export default {
+  CardVTC,
+  vtc,
+  ButtonFilter,
   ModalOverlay,
   ModalHeader,
   Modal,
