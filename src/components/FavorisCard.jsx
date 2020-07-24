@@ -14,7 +14,7 @@ const FavorisCard = ({ favoris }) => {
   return (
     <Flex>
       {favoris.map((i) => (
-        <div key={i.id}>
+        <div key={i}>
           <FavorisItem fav={i} />
         </div>
       ))}
