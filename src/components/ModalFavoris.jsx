@@ -70,8 +70,7 @@ const ModalFavoris = ({ isShowing, hide, fav }) => {
     event.preventDefault();
   };
 
-  const handleValue = (val, e) => {
-    e.preventDefault();
+  const handleValue = (val) => {
     console.log(value);
     setSelectedInputValue(val);
     console.log(selectedInputValue);
