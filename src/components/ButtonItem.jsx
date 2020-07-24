@@ -1,8 +1,14 @@
 import React from "react";
 import Themes from "../constants/Themes";
 
-const ButtonItem = ({ color }) => {
-  return <Themes.Button onClick={toggle} fav={fav} />;
+const ButtonItem = ({ colorText = "", colorBackGround = "", value = "" }) => {
+  return (
+    <Themes.Button
+      style={{ color: colorText, backgroundColor: colorBackGround }}
+    >
+      {value}
+    </Themes.Button>
+  );
 };
 
 export default ButtonItem;

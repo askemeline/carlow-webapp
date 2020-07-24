@@ -48,31 +48,33 @@ const Text = styled.p`
   padding-bottom: 20px;
 `;
 
-///api/place/autocomplete/25 avenue victor hugo
 const ModalFavoris = ({ isShowing, hide, fav }) => {
   const [value, setValue] = useState("");
-
   const [hasError, setHasError] = useState(false);
+  const [selectedInput, setSelectedInput] = useState(null);
+  const [selectedInputValue, setSelectedInputValue] = useState("");
 
-  console.log(value);
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     setValue(e.target.value);
-    console.log(value);
+    try {
+      const { data: response } = await axios.get(
+        "https://api-carlow.herokuapp.com/api/place/autocomplete/" + value
+      );
+      setSelectedInput(response);
+    } catch (e) {
+      console.log(`Axios request failed: ${e}`);
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(value);
+  };
 
-    try {
-      await axios.get(
-        "https://api-carlow.herokuapp.com/api/place/autocomplete/place Bernard Delaunay"
-      );
-      console.log("success");
-    } catch (e) {
-      console.log(`Axios request failed: ${e}`);
-      console.log(e.response);
-    }
+  const handleValue = (val, e) => {
+    e.preventDefault();
+    console.log(value);
+    setSelectedInputValue(val);
+    console.log(selectedInputValue);
   };
 
   return (
@@ -88,15 +90,28 @@ const ModalFavoris = ({ isShowing, hide, fav }) => {
                 <Field
                   name="search"
                   type="search"
-                  placeholder="Ajouter une destination"
+                  value={selectedInputValue}
+                  placeholder="Ajouter votre destination"
                   onChange={handleChange}
                   required
                 />
+                {selectedInput !== null
+                  ? Object.keys(selectedInput).map((keyName, i) => {
+                      const value = selectedInput[keyName].name;
+                      return (
+                        <div key={i}>
+                          <button onClick={() => handleValue(value)}>
+                            {selectedInput[keyName].name}
+                          </button>
+                        </div>
+                      );
+                    })
+                  : null}
                 {hasError ? <Loading /> : null}
                 <Button
                   text="Enregister"
                   type="submit"
-                  onClick={hide}
+                  //   onClick={hide}
                   style={{ marginTop: 100 }}
                 />
               </form>
