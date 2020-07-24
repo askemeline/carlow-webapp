@@ -7,6 +7,7 @@ const Flex = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  justify-content: space-between;
 `;
 
 const FavorisCard = ({ favoris }) => {

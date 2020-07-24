@@ -229,7 +229,46 @@ const ButtonFavoris = styled.button`
   margin: 10px;
 `;
 
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
+`;
+const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+`;
+const Modal = styled.div`
+  z-index: 100;
+  background: ${backgroundColor};
+  position: fixed;
+  border-radius: 3px;
+  max-width: 500px;
+  padding: 2rem;
+  bottom: 0;
+`;
+const ModalHeader = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export default {
+  ModalOverlay,
+  ModalHeader,
+  Modal,
+  ModalWrapper,
   backgroundColor,
   textColor,
   Container,

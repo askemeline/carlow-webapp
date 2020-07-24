@@ -1,42 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Field from "./forms/Field.jsx";
-import Button from "./forms/Button.jsx";
 
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  opacity: 0.5;
-`;
-const ModalWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  outline: 0;
-`;
-const Modal = styled.div`
-  z-index: 100;
-  background: white;
-  position: fixed;
-  border-radius: 3px;
-  max-width: 500px;
-  padding: 2rem;
-  bottom: 0;
-`;
-const ModalHeader = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
+import Button from "./forms/Button.jsx";
+import Themes from "../constants/Themes";
+import Loading from "./Loading.jsx";
+import InputAutocomplete from "./InputAutocomplete.jsx";
 
 const Text = styled.p`
   color: #df5f64;
@@ -45,24 +13,39 @@ const Text = styled.p`
 `;
 
 const ModalFavoris = ({ isShowing, hide, fav }) => {
+  const [hasError, setHasError] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("submit");
+  };
+
   return (
     <>
       {isShowing ? (
         <>
-          <ModalOverlay />
-          <ModalWrapper aria-modal aria-hidden tabIndex={-1} role="dialog">
-            <Modal>
-              <ModalHeader></ModalHeader>
+          <Themes.ModalOverlay />
+          <Themes.ModalWrapper
+            aria-modal
+            aria-hidden
+            tabIndex={-1}
+            role="dialog"
+          >
+            <Themes.Modal>
+              <Themes.ModalHeader />
               <Text>Vous souhaitez ajouter un {fav.toLowerCase()} ?</Text>
-              <Field name="search" type="search" required />
-              <Button
-                text="Enregister"
-                type="submit"
-                onClick={hide}
-                style={{ marginTop: 100 }}
-              />
-            </Modal>
-          </ModalWrapper>
+              <form onSubmit={handleSubmit}>
+                <InputAutocomplete />
+                {hasError ? <Loading /> : null}
+                <Button
+                  text="Enregister"
+                  type="submit"
+                  //   onClick={hide}
+                  style={{ marginTop: 100 }}
+                />
+              </form>
+            </Themes.Modal>
+          </Themes.ModalWrapper>
         </>
       ) : null}
     </>
