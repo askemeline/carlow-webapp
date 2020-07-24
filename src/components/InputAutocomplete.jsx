@@ -7,7 +7,6 @@ import Themes from "../constants/Themes";
 const InputAutocomplete = () => {
   const [value, setValue] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
-  const [selectedInputValue, setSelectedInputValue] = useState("");
 
   const handleChange = async (e) => {
     e.preventDefault();
@@ -22,11 +21,12 @@ const InputAutocomplete = () => {
     }
   };
 
-  const handleValue = (val, e) => {
-    setSelectedInputValue(val);
+  const handleValue = (val) => {
+    setValue(val);
     var elem = document.getElementById("search");
     elem.value = val;
   };
+
   return (
     <>
       <Field
@@ -42,8 +42,12 @@ const InputAutocomplete = () => {
             const value = selectedInput[keyName].name;
             return (
               <div style={{ marginTop: 15 }} key={i}>
-                <Themes.Text onClick={() => handleValue(value)}>
-                  {selectedInput[keyName].name}
+                <Themes.Text
+                  onClick={() => {
+                    handleValue(value);
+                  }}
+                >
+                  {value}
                 </Themes.Text>
                 <hr />
               </div>

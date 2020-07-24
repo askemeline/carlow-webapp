@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Button from "./forms/Button.jsx";
@@ -13,11 +13,11 @@ const Text = styled.p`
 `;
 
 const ModalFavoris = ({ isShowing, hide, fav }) => {
-  const [value, setValue] = useState("");
   const [hasError, setHasError] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("submit");
   };
 
   return (
