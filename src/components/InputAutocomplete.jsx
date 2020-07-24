@@ -4,7 +4,7 @@ import axios from "axios";
 import Field from "./forms/Field";
 import Themes from "../constants/Themes";
 
-const InputAutocomplete = () => {
+const InputAutocomplete = ({ placeholder }) => {
   const [value, setValue] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
 
@@ -31,7 +31,7 @@ const InputAutocomplete = () => {
     <>
       <Field
         type="search"
-        placeholder="Ajouter votre destination"
+        placeholder={placeholder}
         onChange={handleChange}
         name={"firstname"}
         id="search"

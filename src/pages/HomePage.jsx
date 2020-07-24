@@ -16,7 +16,10 @@ const Text = styled.p`
 
 const favs = ["Domicile", "Travail", "Favoris", "Historique"];
 
-const HomePage = () => {
+const HomePage = ({ history }) => {
+  const handleClick = () => {
+    history.push("/search");
+  };
   return (
     <>
       <BackgroundSemicircle
@@ -32,6 +35,7 @@ const HomePage = () => {
           type="search"
           name="search"
           placeholder="Votre destination"
+          onClick={handleClick}
         />
         <FavorisCard favoris={favs} />
       </Margin>

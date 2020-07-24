@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { BsSearch } from "react-icons/bs";
+import { IconContext } from "react-icons";
 
-const Input = styled.input`
+import Themes from "../constants/Themes";
+
+const Input = styled.button`
   width: 100%;
   padding: 15px 10px;
   margin: 8px 0;
@@ -15,11 +19,39 @@ const Input = styled.input`
     color: #273539;
   }
 `;
+const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Text = styled.p`
+  font-size: 16px;
+  margin: 15px 0;
+  color: #000;
+  font-weight: 400;
+`;
+
+const Line = styled.div`
+  width: 1px;
+  min-height: 40px;
+  background: #000;
+  margin-right: 20px;
+`;
 
 const InputSearch = ({ name, ...otherProps }) => {
   return (
     <div>
-      <Input name={name} {...otherProps} />
+      <Input name={name} {...otherProps}>
+        <Flex>
+          <Text>Votre destintaion</Text>
+          <Flex>
+            <Line />
+            <IconContext.Provider value={{ size: "1.5em" }}>
+              <BsSearch />
+            </IconContext.Provider>
+          </Flex>
+        </Flex>
+      </Input>
     </div>
   );
 };
