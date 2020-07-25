@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 import TabBarBottom from "../components/TabBarBottom.jsx";
 import Margin from "../components/forms/Margin.jsx";
@@ -74,6 +75,9 @@ const vtc = Object.entries(objVtc).map(([key, value]) => {
 });
 
 const FilterPage = () => {
+  const location = useLocation();
+  const rideComparison = location.state.rideComparison;
+ 
   return (
     <>
       <Margin heightProps="90%">

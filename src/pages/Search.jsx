@@ -30,8 +30,7 @@ const Search = ({ history }) => {
         "https://api-carlow.herokuapp.com/api/ride/comparison-v2?start_place_id=" 
         + start.getAttribute('data-id') + "&end_place_id=" + end.getAttribute('data-id')
       );
-      console.log(response);
-      history.push("/filter");
+      history.push({pathname: "/filter", state: {rideComparison: response}});
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
     }
