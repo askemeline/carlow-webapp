@@ -74,7 +74,7 @@ const RegisterPage = (props) => {
           />
           <Field
             name="lastName"
-            placeholder="Prénom"
+            placeholder="Nom"
             type="text"
             onChange={handleChange}
             value={user.lastName}
