@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 import TabBarBottom from "../components/TabBarBottom.jsx";
 import Margin from "../components/forms/Margin.jsx";
@@ -28,52 +29,100 @@ const Flex = styled.div`
   align-items: center;
 `;
 
-const obj = [
-  { name: "prix", color: "#FFFFFF", backgroundcolor: "#AA696B" },
-  { name: "temps", color: "#AA696B", backgroundcolor: "#F7E1E1" },
+const filter = [
+  { name: "classique", color: "#273539", backgroundcolor: "#E1E6E8" },
   { name: "green", color: "#688F93", backgroundcolor: "#E1E6E8" },
   { name: "berline", color: "#273539", backgroundcolor: "#E1E6E8" },
   { name: "van", color: "#273539", backgroundcolor: "#E1E6E8" },
 ];
+
+const sort = [
+  { name: "prix", color: "#FFFFFF", backgroundcolor: "#AA696B" },
+  { name: "temps", color: "#AA696B", backgroundcolor: "#F7E1E1" },
+];
+
+let activeFilter = "classique";
+
+let activeSort = "prix";
 
 const objVtc = [
   { name: "heetch", img: heetch },
   { name: "uber", img: uber },
   { name: "kapten", img: kapten },
   { name: "bolt", img: bolt },
+  // todo allocab img
+  { name: "allocab", img: bolt },
+  // todo marcel img
+  { name: "marcel", img: bolt },
 ];
 
-const filter = Object.entries(obj).map(([key, value]) => {
+const renderFilter = filter.map((value, key) => {
   return (
-    <div key={key.id}>
+    <div key={key}>
       <ButtonItem
         value={value.name}
         colorText={value.color}
         colorBackGround={value.backgroundcolor}
+        onClick={() => activeFilter = value.name}
       />
     </div>
   );
 });
 
-const vtc = Object.entries(objVtc).map(([key, value]) => {
+const renderSortable = sort.map((value, key) => {
   return (
-    <Flex>
-      <Themes.Flex style={{ margin: 20 }}>
-        <img src={value.img} alt="Logo" />
-        <Themes.Text style={{ textTransform: "capitalize" }}>
-          {value.name}
-        </Themes.Text>
-        <Themes.Flex>
-          <Themes.Text>Co2 0,006%</Themes.Text>
-          <img src={co2} alt="Logo" />
+    <div key={key}>
+      <ButtonItem
+        value={value.name}
+        colorText={value.color}
+        colorBackGround={value.backgroundcolor}
+        onClick={() => activeSort = value.name}
+      />
+    </div>
+  )
+})
+
+const loadVtc = (rideComparison) => {
+  let rides = rideComparison.rides;
+  console.log(rideComparison);
+  activeSort = 'temps'
+  if (activeSort == "prix") {
+    rides.sort((a, b) => {
+      return a.price - b.price
+    })
+  } else if (activeSort == 'temps') {
+    rides.sort((a, b) => {
+      return a.duration - b.duration;
+    })
+  }
+  return rides.map((ride, key) => {
+    console.log(ride.Options)
+    console.log()
+    if (activeFilter !== "classique" && ride.Options.find(option => option.Slug === activeFilter) === undefined) {
+      return false;
+    }
+    return (
+      <Flex>
+        <Themes.Flex style={{ margin: 20 }}>
+          <img src={objVtc.find(vtc => vtc.name === ride.Vtc.slug).img} alt="Logo" />
+          <Themes.Text style={{ textTransform: "capitalize" }}>
+            {ride.Vtc.name}
+          </Themes.Text>
+          <Themes.Flex>
+            <Themes.Text>Co2 {ride.emission / 10000}%</Themes.Text>
+            <img src={co2} alt="Logo" />
+          </Themes.Flex>
         </Themes.Flex>
-      </Themes.Flex>
-      <p>12€</p>
-    </Flex>
-  );
-});
+        <p>{ride.price / 100}€</p>
+      </Flex>
+    );
+  })
+};
 
 const FilterPage = () => {
+  const location = useLocation();
+  const rideComparison = location.state.rideComparison;
+
   return (
     <>
       <Margin heightProps="90%">
@@ -81,8 +130,9 @@ const FilterPage = () => {
         <Center>
           <Themes.Text style={{ fontWeight: "bold" }}>Vos filtres</Themes.Text>
         </Center>
-        <Card>{filter}</Card>
-        <Themes.CardVTC>{vtc}</Themes.CardVTC>
+        <Card>{renderFilter}</Card>
+        <Card>{renderSortable}</Card>
+        <Themes.CardVTC>{loadVtc(rideComparison)}</Themes.CardVTC>
       </Margin>
       <TabBarBottom text="home" />
     </>

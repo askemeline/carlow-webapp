@@ -4,7 +4,7 @@ import axios from "axios";
 import Field from "./forms/Field";
 import Themes from "../constants/Themes";
 
-const InputAutocomplete = ({ placeholder }) => {
+const InputAutocomplete = ({ placeholder, id, ...otherProps }) => {
   const [value, setValue] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
@@ -33,6 +33,7 @@ const InputAutocomplete = ({ placeholder }) => {
         val
       );
       setPlaceId(response.id);
+      id = response.id;
       setValue(response.name);
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
@@ -51,6 +52,7 @@ const InputAutocomplete = ({ placeholder }) => {
         required
         data-id={placeId}
         value={value}
+        {...otherProps}
       />
       {selectedInput !== null
         ? Object.keys(selectedInput).map((keyName, i) => {
