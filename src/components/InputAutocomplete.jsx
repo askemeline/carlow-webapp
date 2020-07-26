@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Field from "./forms/Field";
@@ -9,8 +9,11 @@ const InputAutocomplete = ({ placeholder }) => {
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
 
-  const handleChange = async (e) => {
+  useEffect(() => {
+    handleValue();
+  }, []);
 
+  const handleChange = async (e) => {
     e.preventDefault();
     setValue(e.target.value);
     try {
@@ -25,7 +28,10 @@ const InputAutocomplete = ({ placeholder }) => {
 
   const handleValue = async (val) => {
     try {
-      const { data: response } = await axios.post('https://api-carlow.herokuapp.com/api/places', val);
+      const { data: response } = await axios.post(
+        "https://api-carlow.herokuapp.com/api/places",
+        val
+      );
       setPlaceId(response.id);
       setValue(response.name);
     } catch (e) {
@@ -41,7 +47,6 @@ const InputAutocomplete = ({ placeholder }) => {
         type="search"
         placeholder={placeholder}
         onChange={handleChange}
-        name={"firstname"}
         id="search"
         required
         data-id={placeId}
@@ -55,7 +60,7 @@ const InputAutocomplete = ({ placeholder }) => {
               <div style={{ marginTop: 15 }} key={i}>
                 <Themes.Text
                   onClick={() => {
-                    handleValue({'name': name, 'googlePlaceId': googlePlaceId});
+                    handleValue({ name: name, googlePlaceId: googlePlaceId });
                   }}
                 >
                   {name}

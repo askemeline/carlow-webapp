@@ -26,25 +26,25 @@ const LoginPage = ({ history }) => {
     password: "",
   });
 
-  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
     setCredentials({ ...credentials, [name]: value });
   };
 
-  const [error, setError] = useState("");
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setHasError(false);
+    setIsLoading(true);
     try {
       await AuthAPI.authenticate(credentials);
-      setHasError(true);
+      setIsLoading(true);
+      console.log("await");
       setIsAuthenticated(true);
       history.replace("/home");
     } catch (e) {
-      setHasError(false);
+      setIsLoading(false);
       setError("Indentifiant invalide");
       console.log(`Axios request failed: ${e}`);
     }
@@ -75,7 +75,8 @@ const LoginPage = ({ history }) => {
           />
           <Button text="Connexion" type="submit" />
           <Themes.Error>{error}</Themes.Error>
-          {hasError && !error ? <Loading /> : null}
+          {isLoading ? <Loading /> : null}
+
           <Container>
             <ButtonBottomText text="Créer un compte" navigation="register" />
             <ButtonBottomText

@@ -1,7 +1,7 @@
 import React from "react";
-import InputSearch from "../components/InputSearch.jsx";
-import TabBarBottom from "../components/TabBarBottom.jsx";
 
+import ButtonSearch from "../components/ButtonSearch.jsx";
+import TabBarBottom from "../components/TabBarBottom.jsx";
 import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import styled from "styled-components";
@@ -31,7 +31,7 @@ const HomePage = ({ history }) => {
         <Text>
           Score calculé selon vos comparaisons et selon le VTC le plus cher
         </Text>
-        <InputSearch
+        <ButtonSearch
           type="search"
           name="search"
           placeholder="Votre destination"
