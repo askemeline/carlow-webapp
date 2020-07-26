@@ -14,7 +14,7 @@ const Text = styled.p`
   padding: 20px 0 30px 0;
 `;
 
-const favs = ["Domicile", "Travail", "Favoris", "Historique"];
+const favs = ["Domicile", "Travail", "Favoris"];
 
 const HomePage = ({ history }) => {
   const handleClick = () => {

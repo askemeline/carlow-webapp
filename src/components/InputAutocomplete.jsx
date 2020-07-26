@@ -4,7 +4,7 @@ import axios from "axios";
 import Field from "./forms/Field";
 import Themes from "../constants/Themes";
 
-const InputAutocomplete = ({ placeholder, id, ...otherProps }) => {
+const InputAutocomplete = ({ placeholder, id, fav="false", ...otherProps }) => {
   const [value, setValue] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
@@ -27,14 +27,30 @@ const InputAutocomplete = ({ placeholder, id, ...otherProps }) => {
   };
 
   const handleValue = async (val) => {
+    let url = null;
+    if (fav) {
+      url = "https://api-carlow.herokuapp.com/api/fav";
+      try {
+        val = {
+          favName: fav,
+          placeName: val.name,
+          googlePlaceId: val.googlePlaceId
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      url = "https://api-carlow.herokuapp.com/api/places";
+    }
     try {
       const { data: response } = await axios.post(
-        "https://api-carlow.herokuapp.com/api/places",
+        url,
         val
       );
       setPlaceId(response.id);
       id = response.id;
       setValue(response.name);
+      console.log(response)
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
     }
