@@ -46,12 +46,14 @@ const Search = ({ history }) => {
               style={{ marginBottom: 30 }}
               data-role="start"
               className="start"
+              fav={false}
             />
             <InputAutocomplete
               style={{ marginTop: 20 }}
               placeholder="Destination"
               data-role="end"
               className="end"
+              fav={false}
             />
           </Card>
           <Button
