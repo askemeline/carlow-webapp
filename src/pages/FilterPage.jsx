@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
@@ -6,7 +6,7 @@ import TabBarBottom from "../components/TabBarBottom.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import ButtonItem from "../components/ButtonItem.jsx";
-import Themes from "../constants/Themes";
+import Themes from "../constants/Themes.js";
 import heetch from "../asset/heetch.png";
 import uber from "../asset/uber.png";
 import kapten from "../asset/kapten.png";
@@ -63,7 +63,7 @@ const renderFilter = filter.map((value, key) => {
         value={value.name}
         colorText={value.color}
         colorBackGround={value.backgroundcolor}
-        onClick={() => activeFilter = value.name}
+        onClick={() => (activeFilter = value.name)}
       />
     </div>
   );
@@ -76,35 +76,41 @@ const renderSortable = sort.map((value, key) => {
         value={value.name}
         colorText={value.color}
         colorBackGround={value.backgroundcolor}
-        onClick={() => activeSort = value.name}
+        onClick={() => (activeSort = value.name)}
       />
     </div>
-  )
-})
+  );
+});
 
 const loadVtc = (rideComparison) => {
   let rides = rideComparison.rides;
   console.log(rideComparison);
-  activeSort = 'temps'
-  if (activeSort == "prix") {
+  activeSort = "temps";
+  if (activeSort === "prix") {
     rides.sort((a, b) => {
-      return a.price - b.price
-    })
-  } else if (activeSort == 'temps') {
+      return a.price - b.price;
+    });
+  } else if (activeSort === "temps") {
     rides.sort((a, b) => {
       return a.duration - b.duration;
-    })
+    });
   }
   return rides.map((ride, key) => {
-    console.log(ride.Options)
-    console.log()
-    if (activeFilter !== "classique" && ride.Options.find(option => option.Slug === activeFilter) === undefined) {
+    console.log(ride.Options);
+    console.log();
+    if (
+      activeFilter !== "classique" &&
+      ride.Options.find((option) => option.Slug === activeFilter) === undefined
+    ) {
       return false;
     }
     return (
       <Flex key={key}>
         <Themes.Flex style={{ margin: 20 }}>
-          <img src={objVtc.find(vtc => vtc.name === ride.Vtc.slug).img} alt="Logo" />
+          <img
+            src={objVtc.find((vtc) => vtc.name === ride.Vtc.slug).img}
+            alt="Logo"
+          />
           <Themes.Text style={{ textTransform: "capitalize" }}>
             {ride.Vtc.name}
           </Themes.Text>
@@ -116,7 +122,7 @@ const loadVtc = (rideComparison) => {
         <p>{ride.price / 100}€</p>
       </Flex>
     );
-  })
+  });
 };
 
 const FilterPage = () => {

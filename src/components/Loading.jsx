@@ -1,6 +1,7 @@
 import React from "react";
-import Themes from "../constants/Themes";
 import * as ReactBootStrap from "react-bootstrap";
+
+import Themes from "../constants/Themes.js";
 
 const Loading = () => {
   return (

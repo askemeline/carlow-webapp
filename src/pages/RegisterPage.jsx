@@ -8,7 +8,7 @@ import Button from "../components/forms/Button.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import ButtonBottomText from "../components/forms/ButtonBottomText.jsx";
 import Margin from "../components/forms/Margin.jsx";
-import Themes from "../constants/Themes";
+import Themes from "../constants/Themes.js";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const Container = styled.div`
   margin-top: 20px;
 `;
 
-const RegisterPage = (props) => {
+const RegisterPage = () => {
   let history = useHistory();
 
   const [user, setUser] = useState({

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Field from "./forms/Field";
-import Themes from "../constants/Themes";
+import Field from "./forms/Field.jsx";
+import Themes from "../constants/Themes.js";
 
-const InputAutocomplete = ({ placeholder, id, fav=false, ...otherProps }) => {
+const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
   const [value, setValue] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
@@ -31,9 +31,9 @@ const InputAutocomplete = ({ placeholder, id, fav=false, ...otherProps }) => {
       return;
     }
     let val = {
-      name: e.target.getAttribute('data-name'),
-      googlePlaceId: e.target.getAttribute('data-google-place-id')
-    }
+      name: e.target.getAttribute("data-name"),
+      googlePlaceId: e.target.getAttribute("data-google-place-id"),
+    };
     let url = null;
     if (fav) {
       url = "https://api-carlow.herokuapp.com/api/fav";
@@ -42,9 +42,9 @@ const InputAutocomplete = ({ placeholder, id, fav=false, ...otherProps }) => {
           favName: fav,
           placeName: val.name,
           googlePlaceId: val.googlePlaceId,
-          name: val.name
-        }
-        console.log(val)
+          name: val.name,
+        };
+        console.log(val);
       } catch (e) {
         console.log(e);
       }
@@ -52,10 +52,7 @@ const InputAutocomplete = ({ placeholder, id, fav=false, ...otherProps }) => {
       url = "https://api-carlow.herokuapp.com/api/places";
     }
     try {
-      const { data: response } = await axios.post(
-        url,
-        val
-      );
+      const { data: response } = await axios.post(url, val);
       setPlaceId(response.id);
       id = response.id;
       if (val.placeName === undefined) {
@@ -67,7 +64,6 @@ const InputAutocomplete = ({ placeholder, id, fav=false, ...otherProps }) => {
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
     }
-
     setSelectedInput(null);
   };
 

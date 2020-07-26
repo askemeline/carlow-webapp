@@ -4,11 +4,11 @@ import { useMediaQuery } from "react-responsive";
 import theme from "styled-theming";
 import { Provider as ReduxProvider } from "react-redux";
 
-import store from "./services/store";
+import store from "./services/store.js";
 import "./App.css";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import PasswordForgot from "./pages/PasswordForgot.jsx";
+import PasswordForgotPage from "./pages/PasswordForgotPage.jsx";
 import DesktopPage from "./pages/DesktopPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import AuthAPI from "./services/authAPI.js";
@@ -16,12 +16,12 @@ import AuthContext from "./context/AuthContext.js";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import Error from "./components/Error.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
-import ProfilePageInfoperso from "./pages/ProfilePageInfoperso.jsx";
-import DarkThemeProvider from "./services/DarkThemeProvider";
-import Themes from "./constants/Themes";
+import ProfileInfoPage from "./pages/ProfileInfoPage.jsx";
+import DarkThemeProvider from "./services/DarkThemeProvider.js";
+import Themes from "./constants/Themes.js";
 import FilterPage from "./pages/FilterPage.jsx";
-import Search from "./pages/Search.jsx";
-import FavorisPage from "./pages/FavorisPage";
+import SearchPage from "./pages/SearchPage.jsx";
+import FavorisPage from "./pages/FavorisPage.jsx";
 
 AuthAPI.setup();
 
@@ -64,16 +64,13 @@ function App() {
                   <Route
                     exact
                     path="/passwordforgot"
-                    component={PasswordForgot}
+                    component={PasswordForgotPage}
                   />
                   <Route exact path="/profile" component={ProfilePage} />
-                  <PrivateRoute
-                    path="/infos"
-                    component={ProfilePageInfoperso}
-                  />
+                  <PrivateRoute path="/infos" component={ProfileInfoPage} />
 
                   <PrivateRoute path="/filter" component={FilterPage} />
-                  <PrivateRoute path="/search" component={Search} />
+                  <PrivateRoute path="/search" component={SearchPage} />
                   <PrivateRoute path="/favoris" component={FavorisPage} />
                   <Route component={Error} />
                 </Switch>

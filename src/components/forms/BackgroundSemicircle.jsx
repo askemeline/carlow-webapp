@@ -9,6 +9,7 @@ const Flex = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const BackgroundSemicircle = ({
   text,
   subText = "",

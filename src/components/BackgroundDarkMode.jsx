@@ -8,7 +8,7 @@ const BackgroundDM = styled(ImageDarkMode)`
   right: 0;
   z-index: 0;
   width: auto;
-  padding: 0; /* reset */
+  padding: 0;
   filter: opacity(90%);
 `;
 const BackgroundDarkMode = () => {

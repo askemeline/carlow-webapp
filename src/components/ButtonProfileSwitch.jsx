@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Switch from "react-input-switch";
 
 const Button = styled.div`
   background-color: #3d3d41;
@@ -27,19 +26,13 @@ const ButtonProfile = ({ text, navigation = "", ...otherProps }) => {
       type="text"
       {...otherProps}
     >
-      {text} 
+      {text}
       <div className="toggle-container">
-          <span /*style={{ color: darkMode ? "grey" : "yellow" }}*/>☀︎</span>
-          <span className="toggle">
-            <input
-              //checked={darkMode}
-              //onChange={() => setDarkMode(prevMode => !prevMode)}
-              id="checkbox"
-              className="checkbox"
-              type="checkbox"
-            />
-            <label htmlFor="checkbox" />
-          </span>
+        <span>☀︎</span>
+        <span className="toggle">
+          <input id="checkbox" className="checkbox" type="checkbox" />
+          <label htmlFor="checkbox" />
+        </span>
       </div>
     </Button>
   );
