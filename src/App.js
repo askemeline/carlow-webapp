@@ -21,6 +21,7 @@ import DarkThemeProvider from "./services/DarkThemeProvider";
 import Themes from "./constants/Themes";
 import FilterPage from "./pages/FilterPage.jsx";
 import Search from "./pages/Search.jsx";
+import FavorisPage from "./pages/FavorisPage";
 
 AuthAPI.setup();
 
@@ -73,6 +74,7 @@ function App() {
 
                   <PrivateRoute path="/filter" component={FilterPage} />
                   <PrivateRoute path="/search" component={Search} />
+                  <PrivateRoute path="/favoris" component={FavorisPage} />
                   <Route component={Error} />
                 </Switch>
                 {isAuthenticated ? (
