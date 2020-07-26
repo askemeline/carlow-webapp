@@ -29,7 +29,7 @@ const ModalFavoris = ({ isShowing, hide, fav }) => {
             <Themes.Modal>
               <Themes.ModalHeader />
               <Text>Vous souhaitez ajouter un {fav.toLowerCase()} ?</Text>
-              <InputAutocomplete placeholder="Ajouter votre destination" />
+              <InputAutocomplete placeholder="Ajouter votre destination" fav={fav.toLowerCase()} />
               {hasError ? <Loading /> : null}
               <Button
                 text="Enregister"

@@ -4,7 +4,7 @@ import axios from "axios";
 import Field from "./forms/Field";
 import Themes from "../constants/Themes";
 
-const InputAutocomplete = ({ placeholder, id, ...otherProps }) => {
+const InputAutocomplete = ({ placeholder, id, fav=false, ...otherProps }) => {
   const [value, setValue] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
@@ -26,15 +26,44 @@ const InputAutocomplete = ({ placeholder, id, ...otherProps }) => {
     }
   };
 
-  const handleValue = async (val) => {
+  const handleValue = async (e) => {
+    if (e === undefined) {
+      return;
+    }
+    let val = {
+      name: e.target.getAttribute('data-name'),
+      googlePlaceId: e.target.getAttribute('data-google-place-id')
+    }
+    let url = null;
+    if (fav) {
+      url = "https://api-carlow.herokuapp.com/api/fav";
+      try {
+        val = {
+          favName: fav,
+          placeName: val.name,
+          googlePlaceId: val.googlePlaceId,
+          name: val.name
+        }
+        console.log(val)
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      url = "https://api-carlow.herokuapp.com/api/places";
+    }
     try {
       const { data: response } = await axios.post(
-        "https://api-carlow.herokuapp.com/api/places",
+        url,
         val
       );
       setPlaceId(response.id);
       id = response.id;
-      setValue(response.name);
+      if (val.placeName === undefined) {
+        setValue(response.name);
+      } else {
+        setValue(val.placeName);
+      }
+      console.log(response);
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
     }
@@ -61,9 +90,9 @@ const InputAutocomplete = ({ placeholder, id, ...otherProps }) => {
             return (
               <div style={{ marginTop: 15 }} key={i}>
                 <Themes.Text
-                  onClick={() => {
-                    handleValue({ name: name, googlePlaceId: googlePlaceId });
-                  }}
+                  data-name={name}
+                  data-google-place-id={googlePlaceId}
+                  onClick={handleValue}
                 >
                   {name}
                 </Themes.Text>

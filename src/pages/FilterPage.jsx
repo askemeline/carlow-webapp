@@ -102,7 +102,7 @@ const loadVtc = (rideComparison) => {
       return false;
     }
     return (
-      <Flex>
+      <Flex key={key}>
         <Themes.Flex style={{ margin: 20 }}>
           <img src={objVtc.find(vtc => vtc.name === ride.Vtc.slug).img} alt="Logo" />
           <Themes.Text style={{ textTransform: "capitalize" }}>
