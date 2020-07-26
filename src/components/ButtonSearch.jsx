@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-import Themes from "../constants/Themes";
-
 const Input = styled.button`
   width: 100%;
   padding: 15px 10px;
@@ -38,7 +36,7 @@ const Line = styled.div`
   margin-right: 20px;
 `;
 
-const InputSearch = ({ name, ...otherProps }) => {
+const ButtonSearch = ({ name, ...otherProps }) => {
   return (
     <div>
       <Input name={name} {...otherProps}>
@@ -56,4 +54,4 @@ const InputSearch = ({ name, ...otherProps }) => {
   );
 };
 
-export default InputSearch;
+export default ButtonSearch;

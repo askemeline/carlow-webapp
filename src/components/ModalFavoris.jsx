@@ -40,7 +40,7 @@ const ModalFavoris = ({ isShowing, hide, fav }) => {
                 <Button
                   text="Enregister"
                   type="submit"
-                  //   onClick={hide}
+                  onClick={hide}
                   style={{ marginTop: 100 }}
                 />
               </form>
