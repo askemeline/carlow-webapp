@@ -40,10 +40,58 @@ const favButtonBackgroundcolor = theme("theme", {
   light: "#e1e6e8",
   dark: "#3D3D41",
 });
+const SearchButtonBackgroundcolor = theme("theme", {
+  light: "#FFFFFF",
+  dark: "#1C1C1E",
+});
 
 const vtc = theme("theme", {
   light: "#FFFFFF",
   dark: "#1C1C1E",
+});
+
+const BoxShadowTabBar = theme("theme", {
+  light: "inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc",
+  dark: "unset",
+});
+
+const BackgroundColorTabBar = theme("theme", {
+  light: "#FFFFFF",
+  dark: "#3D3D41",
+});
+
+const BackgroundColorHomeTabBar = theme("theme", {
+  light: "#F3D2D3",
+  dark: "#6B767A",
+});
+
+const ColorHomeTabBar = theme("theme", {
+  light: "#AA696B",
+  dark: "#FFFFFF",
+});
+
+const BackgroundColorSettingTabBar = theme("theme", {
+  light: "#B4D0D3",
+  dark: "#6B767A",
+});
+
+const ColorSettingTabBar = theme("theme", {
+  light: "#337F86",
+  dark: "#FFFFFF",
+});
+
+const ColorIconHomeTabBar = theme("theme", {
+  light: "#AA696B",
+  dark: "#FFFFFF",
+});
+
+const ColorIconSettingTabBar = theme("theme", {
+  light: "#337F86",
+  dark: "#FFFFFF",
+});
+const ColorIconOnlyTabBar = theme("theme", {
+  light: "#022A2F",
+  dark: "#FFFFFF",
 });
 
 const Container = styled.div`
@@ -244,6 +292,7 @@ const ModalOverlay = styled.div`
   background-color: #000;
   opacity: 0.5;
 `;
+
 const ModalWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -255,6 +304,7 @@ const ModalWrapper = styled.div`
   overflow-y: auto;
   outline: 0;
 `;
+
 const Modal = styled.div`
   z-index: 100;
   background: ${backgroundColor};
@@ -264,13 +314,14 @@ const Modal = styled.div`
   padding: 2rem;
   bottom: 0;
 `;
+
 const ModalHeader = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
 
 const ButtonFilter = styled.button`
-  width: 150px;
+  width: 120px;
   height: 45px;
   border-radius: 50px;
   background-color: ${favButtonBackgroundcolor};
@@ -287,7 +338,115 @@ const CardVTC = styled.div`
   padding: 20px 20px 0 20px;
 `;
 
+const Line = styled.div`
+  width: 1px;
+  min-height: 40px;
+  background: ${textColor};
+  margin-right: 20px;
+`;
+
+const Div = styled.div`
+  color: ${textColor};
+`;
+
+const ButtonSearch = styled.button`
+  width: 100%;
+  padding: 15px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 1px solid #f9f9f9;
+  box-shadow: 0px 0px 19px -9px rgba(0, 0, 0, 0.48);
+  height: 70px;
+  background: ${SearchButtonBackgroundcolor};
+
+  ::placeholder {
+    color: #273539;
+  }
+`;
+
+const ContainerTabBarBottom = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  font-size: 16px;
+  box-shadow: ${BoxShadowTabBar};
+  justify-content: space-around;
+  background-color: ${BackgroundColorTabBar};
+`;
+
+const FlexHome = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: ${BackgroundColorHomeTabBar};
+`;
+
+const FlexSetting = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: ${BackgroundColorSettingTabBar};
+`;
+
+const TextHomeTabBar = styled.p`
+  margin-left: 5px;
+  text-decoration: none;
+  color: ${ColorHomeTabBar};
+`;
+
+const TextSettingTabBar = styled.p`
+  margin-left: 5px;
+  text-decoration: none;
+  color: ${ColorSettingTabBar};
+`;
+
+const IconHomeTabBar = styled.div`
+  color: ${ColorIconHomeTabBar};
+  display: flex;
+  align-items: center;
+`;
+
+const IconSettingTabBar = styled.div`
+  color: ${ColorIconSettingTabBar};
+  display: flex;
+  align-items: center;
+`;
+
+const IconOnlyabBar = styled.div`
+  color: ${ColorIconOnlyTabBar};
+`;
+
 export default {
+  IconOnlyabBar,
+  ColorIconOnlyTabBar,
+  IconHomeTabBar,
+  IconSettingTabBar,
+  ColorIconSettingTabBar,
+  ColorIconHomeTabBar,
+  TextHomeTabBar,
+  TextSettingTabBar,
+  ColorSettingTabBar,
+  ColorHomeTabBar,
+  FlexHome,
+  FlexSetting,
+  BackgroundColorSettingTabBar,
+  BackgroundColorHomeTabBar,
+  ContainerTabBarBottom,
+  ButtonSearch,
+  Div,
+  Line,
   CardVTC,
   vtc,
   ButtonFilter,

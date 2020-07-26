@@ -8,7 +8,7 @@ import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import AuthAPI from "../services/authAPI.js";
 import AuthContext from "../context/AuthContext.js";
-import Themes from "../constants/Themes";
+import Themes from "../constants/Themes.js";
 import Loading from "../components/Loading.jsx";
 
 const Container = styled.div`

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Margin from "../components/forms/Margin";
-import HeaderButton from "../components/forms/HeaderButton";
-import TabBarBottom from "../components/TabBarBottom";
-import Themes from "../constants/Themes";
+import Margin from "../components/forms/Margin.jsx";
+import HeaderButton from "../components/forms/HeaderButton.jsx";
+import TabBarBottom from "../components/TabBarBottom.jsx";
+import Themes from "../constants/Themes.js";
 import Loading from "../components/Loading.jsx";
 
 const FavorisPage = () => {
@@ -44,8 +44,16 @@ const FavorisPage = () => {
     <>
       <Margin heightProps="70%">
         <HeaderButton icon="back" text="Retour" navigation="profile" />
-        <Themes.Text style={{ fontWeight: "bold" }}>Vos favoris</Themes.Text>
-        {isLoading ? <Loading /> : datas}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <Themes.Text style={{ fontWeight: "bold" }}>
+              Vos favoris
+            </Themes.Text>
+            {datas.length ? datas : "Pas de favoris pour le moment"}
+          </>
+        )}
       </Margin>
       <TabBarBottom text="home" />
     </>

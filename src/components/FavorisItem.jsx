@@ -1,7 +1,9 @@
 import React from "react";
-import Themes from "../constants/Themes";
-import ModalFavoris from "./ModalFavoris";
-import useModal from "./useModal";
+
+import Themes from "../constants/Themes.js";
+import ModalFavoris from "./ModalFavoris.jsx";
+import useModal from "./useModal.jsx";
+
 const FavorisItem = ({ fav }) => {
   const { isShowing, toggle } = useModal();
 

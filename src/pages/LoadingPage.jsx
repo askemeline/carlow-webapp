@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ReactComponent as BackgroudImage } from "../asset/bg-login.svg";
 
+import { ReactComponent as BackgroudImage } from "../asset/bg-login.svg";
 import mainLogo from "../asset/android-chrome-192x192.png";
 
 const Container = styled.div`

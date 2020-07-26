@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-import Margin from "../components/forms/Margin";
-import HeaderButton from "../components/forms/HeaderButton";
-import TabBarBottom from "../components/TabBarBottom";
-import InputAutocomplete from "../components/InputAutocomplete";
-import Button from "../components/forms/Button";
+import Margin from "../components/forms/Margin.jsx";
+import HeaderButton from "../components/forms/HeaderButton.jsx";
+import TabBarBottom from "../components/TabBarBottom.jsx";
+import InputAutocomplete from "../components/InputAutocomplete.jsx";
+import Button from "../components/forms/Button.jsx";
 
 const Card = styled.div`
   padding: 0 0 20px 0;
@@ -22,15 +22,20 @@ const handleSubmit = async (event) => {
 
 const Search = ({ history }) => {
   const handleClick = async () => {
-    const start = document.querySelector('.start');
-    const end = document.querySelector('.end');
+    const start = document.querySelector(".start");
+    const end = document.querySelector(".end");
 
     try {
       const { data: response } = await axios.get(
-        "https://api-carlow.herokuapp.com/api/ride/comparison-v2?start_place_id=" 
-        + start.getAttribute('data-id') + "&end_place_id=" + end.getAttribute('data-id')
+        "https://api-carlow.herokuapp.com/api/ride/comparison-v2?start_place_id=" +
+          start.getAttribute("data-id") +
+          "&end_place_id=" +
+          end.getAttribute("data-id")
       );
-      history.push({pathname: "/filter", state: {rideComparison: response}});
+      history.push({
+        pathname: "/filter",
+        state: { rideComparison: response },
+      });
     } catch (e) {
       console.log(`Axios request failed: ${e}`);
     }

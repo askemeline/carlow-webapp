@@ -5,6 +5,11 @@
   outline: none;
 }
 
+div>svg {
+  width: 2em;
+  height: 2em;
+}
+
 p {
      margin-top: unset !important; 
     margin-bottom: unset !important;

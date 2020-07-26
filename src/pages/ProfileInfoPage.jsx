@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import TabBarBottom from "../components/TabBarBottom.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import AuthAPI from "../services/authAPI.js";
-import Themes from "../constants/Themes";
+import Themes from "../constants/Themes.js";
 import Loading from "../components/Loading.jsx";
 import Field from "../components/forms/Field.jsx";
 import Button from "../components/forms/Button.jsx";
-import { useHistory } from "react-router-dom";
 
 const ProfilePage = () => {
   const [data, setData] = useState({});

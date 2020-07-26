@@ -1,10 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 
 import ButtonSearch from "../components/ButtonSearch.jsx";
 import TabBarBottom from "../components/TabBarBottom.jsx";
 import BackgroundSemicircle from "../components/forms/BackgroundSemicircle.jsx";
 import Margin from "../components/forms/Margin.jsx";
-import styled from "styled-components";
 import FavorisCard from "../components/FavorisCard.jsx";
 
 const Text = styled.p`

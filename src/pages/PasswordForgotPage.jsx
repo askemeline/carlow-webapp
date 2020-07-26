@@ -8,7 +8,7 @@ import HeaderButton from "../components/forms/HeaderButton.jsx";
 import Margin from "../components/forms/Margin.jsx";
 import Themes from "../constants/Themes.js";
 
-const PasswordForgot = () => {
+const PasswordForgotPage = () => {
   let history = useHistory();
 
   const [email, setEmail] = useState("");
@@ -64,4 +64,4 @@ const PasswordForgot = () => {
   );
 };
 
-export default PasswordForgot;
+export default PasswordForgotPage;
