@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 const ProfilePage = () => {
   const [data, setData] = useState({});
-  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   let history = useHistory();
@@ -24,10 +24,10 @@ const ProfilePage = () => {
   }, []);
 
   const getData = async () => {
-    setHasError(true);
+    setIsLoading(true);
     const res = await AuthAPI.findUser();
     setData(res);
-    setHasError(false);
+    setIsLoading(false);
   };
   const [user, setUser] = useState({
     firstName: "",
@@ -52,7 +52,7 @@ const ProfilePage = () => {
       await delay(5000);
       history.push("/login");
     } catch (error) {
-      setHasError(false);
+      setIsLoading(false);
       setError("Une erreur est survenue");
     }
   };
@@ -63,7 +63,7 @@ const ProfilePage = () => {
         <Themes.FlexStart>
           <HeaderButton icon="back" text="Retour" navigation="profile" />
         </Themes.FlexStart>
-        {hasError ? (
+        {isLoading ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Loading />
           </div>
