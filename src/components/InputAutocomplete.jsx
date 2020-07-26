@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Field from "./forms/Field";
@@ -8,6 +8,10 @@ const InputAutocomplete = ({ placeholder }) => {
   const [value, setValue] = useState("");
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
+
+  useEffect(() => {
+    handleValue();
+  }, []);
 
   const handleChange = async (e) => {
     e.preventDefault();

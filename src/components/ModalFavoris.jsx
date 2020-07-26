@@ -15,11 +15,6 @@ const Text = styled.p`
 const ModalFavoris = ({ isShowing, hide, fav }) => {
   const [hasError, setHasError] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log("submit");
-  };
-
   return (
     <>
       {isShowing ? (
@@ -34,16 +29,14 @@ const ModalFavoris = ({ isShowing, hide, fav }) => {
             <Themes.Modal>
               <Themes.ModalHeader />
               <Text>Vous souhaitez ajouter un {fav.toLowerCase()} ?</Text>
-              <form onSubmit={handleSubmit}>
-                <InputAutocomplete placeholder="Ajouter votre destination" />
-                {hasError ? <Loading /> : null}
-                <Button
-                  text="Enregister"
-                  type="submit"
-                  onClick={hide}
-                  style={{ marginTop: 100 }}
-                />
-              </form>
+              <InputAutocomplete placeholder="Ajouter votre destination" />
+              {hasError ? <Loading /> : null}
+              <Button
+                text="Enregister"
+                type="submit"
+                onClick={hide}
+                style={{ marginTop: 100 }}
+              />
             </Themes.Modal>
           </Themes.ModalWrapper>
         </>
