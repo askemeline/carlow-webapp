@@ -10,7 +10,7 @@ const FavorisPage = () => {
     <>
       <Margin heightProps="70%">
         <HeaderButton icon="back" text="Retour" navigation="home" />
-        <Themes.Text style={{ fontWeight: "bold" }}>Vos filtres</Themes.Text>
+        <Themes.Text style={{ fontWeight: "bold" }}>Vos favoris</Themes.Text>
         <>Domicile : </>
       </Margin>
       <TabBarBottom text="home" />
