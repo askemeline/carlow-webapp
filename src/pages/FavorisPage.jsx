@@ -44,8 +44,16 @@ const FavorisPage = () => {
     <>
       <Margin heightProps="70%">
         <HeaderButton icon="back" text="Retour" navigation="profile" />
-        <Themes.Text style={{ fontWeight: "bold" }}>Vos favoris</Themes.Text>
-        {isLoading ? <Loading /> : datas}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <Themes.Text style={{ fontWeight: "bold" }}>
+              Vos favoris
+            </Themes.Text>
+            {datas.length ? datas : "Pas de favoris pour le moment"}
+          </>
+        )}
       </Margin>
       <TabBarBottom text="home" />
     </>
