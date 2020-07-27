@@ -9,6 +9,8 @@ import bolt from "../asset/bolt.png";
 import co2 from "../asset/co2.png";
 import marcel from "../asset/marcel.png";
 import allocab from "../asset/allocab.png";
+import useModal from "./useModal.jsx";
+import ModalVtc from "./ModalVtc.jsx";
 
 const VtcListItem = ({ filter, sortable }) => {
   // let activeFilter = "classique";
@@ -22,6 +24,7 @@ const VtcListItem = ({ filter, sortable }) => {
     { name: "allocab", img: allocab },
     { name: "marcel", img: marcel },
   ];
+  const { isShowing, toggle } = useModal();
 
   const location = useLocation();
   const rideComparison = location.state.rideComparison;
@@ -43,30 +46,34 @@ const VtcListItem = ({ filter, sortable }) => {
     ) {
       return false;
     }
+    const rideName = ride.Vtc.Name;
     return (
-      <Themes.FlexVtc key={key}>
-        <Themes.Flex style={{ margin: 20 }}>
-          <img
-            src={objVtc.find((vtc) => vtc.name === ride.Vtc.slug).img}
-            alt="Logo"
-            style={{ width: 42, heigth: 42, marginRight: 10 }}
-          />
-          <Themes.Text style={{ textTransform: "capitalize" }}>
-            {ride.Vtc.Name}
-            <br></br>
-            {ride.timeBeforeDeparture % 60} min
-          </Themes.Text>
-          <Themes.Flex>
-            <Themes.TextCO2 style={{ fontSize: "10" }}>
+      <button onClick={toggle} rideName={rideName}>
+        <Themes.FlexVtc key={key} style={{ backgroundColor: "red" }}>
+          <Themes.Flex style={{ margin: 20 }}>
+            <img
+              src={objVtc.find((vtc) => vtc.name === ride.Vtc.slug).img}
+              alt="Logo"
+              style={{ width: 42, heigth: 42, marginRight: 10 }}
+            />
+            <ModalVtc isShowing={isShowing} hide={toggle} rideName={rideName} />
+            <Themes.Text style={{ textTransform: "capitalize" }}>
+              {rideName}
               <br></br>
-              <br></br>
-              <img src={co2} alt="Logo" />
-              Co2 {ride.emission / 10000}%
-            </Themes.TextCO2>
+              {ride.timeBeforeDeparture % 60} min
+            </Themes.Text>
+            <Themes.Flex>
+              <Themes.TextCO2 style={{ fontSize: "10" }}>
+                <br></br>
+                <br></br>
+                <img src={co2} alt="Logo" />
+                Co2 {ride.emission / 10000}%
+              </Themes.TextCO2>
+            </Themes.Flex>
+            <Themes.Text>{ride.price / 100}€</Themes.Text>
           </Themes.Flex>
-        </Themes.Flex>
-        <p>{ride.price / 100}€</p>
-      </Themes.FlexVtc>
+        </Themes.FlexVtc>
+      </button>
     );
   });
 };
