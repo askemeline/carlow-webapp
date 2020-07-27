@@ -12,6 +12,8 @@ import uber from "../asset/uber.png";
 import kapten from "../asset/kapten.png";
 import bolt from "../asset/bolt.png";
 import co2 from "../asset/co2.png";
+import marcel from "../asset/marcel.png";
+import allocab from "../asset/allocab.png";
 
 const Center = styled.div`
   text-align: center;
@@ -50,10 +52,8 @@ const objVtc = [
   { name: "uber", img: uber },
   { name: "kapten", img: kapten },
   { name: "bolt", img: bolt },
-  // todo allocab img
-  { name: "allocab", img: bolt },
-  // todo marcel img
-  { name: "marcel", img: bolt },
+  { name: "allocab", img: allocab },
+  { name: "marcel", img: marcel },
 ];
 
 const renderFilter = filter.map((value, key) => {
@@ -110,6 +110,7 @@ const loadVtc = (rideComparison) => {
           <img
             src={objVtc.find((vtc) => vtc.name === ride.Vtc.slug).img}
             alt="Logo"
+            style={{ width: 42, heigth: 42 }}
           />
           <Themes.Text style={{ textTransform: "capitalize" }}>
             {ride.Vtc.Name}
