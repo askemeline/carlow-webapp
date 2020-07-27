@@ -114,9 +114,11 @@ const loadVtc = (rideComparison) => {
             style={{ width: 42, heigth: 42 }}
           />
           <Themes.Text style={{ textTransform: "capitalize" }}>
-            {ride.Vtc.Name}
+            {ride.Vtc.Name}<br></br>
+            5 min
           </Themes.Text>
           <Themes.Flex>
+
             <Themes.TextCO2 style={{fontSize: '10px !important;'}}><br></br><br></br><img src={co2} alt="Logo" />Co2 {ride.emission / 10000}%</Themes.TextCO2>
             
           </Themes.Flex>
