@@ -11,7 +11,7 @@ const ProfilePage = () => {
   return (
     <>
       <BackgroundSemicircle text="Mon profil" topText="Déconnexion" />
-      <Margin heightProps="60%">
+      <Margin heightProps="67%">
         <ButtonProfile text="Informations personnelles" navigation="infos" />
         <ButtonProfile text="Afficher les favoris" navigation="favoris" />
         <ButtonProfileDisabled text="Carte bancaire" />

@@ -42,7 +42,7 @@ const Search = ({ history }) => {
   };
   return (
     <>
-      <Margin heightProps="70%">
+      <Margin heightProps="88%">
         <HeaderButton icon="back" text="Retour" navigation="home" />
         <form onSubmit={handleSubmit}>
           <Card>
@@ -61,13 +61,13 @@ const Search = ({ history }) => {
               fav={false}
             />
           </Card>
-          <Button
+         
+        </form>
+        <Button className="btn-searchpage"
             text="Valider"
             type="submit"
             onClick={handleClick}
-            style={{ marginTop: 100 }}
           />
-        </form>
       </Margin>
       <TabBarBottom />
     </>

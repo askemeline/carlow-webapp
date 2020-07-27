@@ -17,6 +17,7 @@ import allocab from "../asset/allocab.png";
 
 const Center = styled.div`
   text-align: center;
+  margin-top: 40px;
 `;
 const Card = styled.div`
   display: flex;
@@ -116,8 +117,8 @@ const loadVtc = (rideComparison) => {
             {ride.Vtc.Name}
           </Themes.Text>
           <Themes.Flex>
-            <Themes.Text>Co2 {ride.emission / 10000}%</Themes.Text>
-            <img src={co2} alt="Logo" />
+            <Themes.TextCO2 style={{fontSize: '10px !important;'}}><br></br><br></br><img src={co2} alt="Logo" />Co2 {ride.emission / 10000}%</Themes.TextCO2>
+            
           </Themes.Flex>
         </Themes.Flex>
         <p>{ride.price / 100}€</p>
@@ -132,7 +133,7 @@ const FilterPage = () => {
 
   return (
     <>
-      <Margin heightProps="90%">
+      <Margin heightProps="75%">
         <HeaderButton icon="back" text="Retour" navigation="home" />
         <Center>
           <Themes.Text style={{ fontWeight: "bold" }}>Vos filtres</Themes.Text>

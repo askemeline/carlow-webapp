@@ -32,7 +32,7 @@ const FavorisPage = () => {
     .map(([key, value]) => {
       return (
         <div key={key}>
-          <p>
+          <p style={{textTransform : "capitalize"}}>
             {value.name}: {value.place.name}
           </p>
           <br />
@@ -42,7 +42,7 @@ const FavorisPage = () => {
 
   return (
     <>
-      <Margin heightProps="70%">
+      <div className="containerFavs">
         <HeaderButton icon="back" text="Retour" navigation="profile" />
         {isLoading ? (
           <Loading />
@@ -54,8 +54,9 @@ const FavorisPage = () => {
             {datas.length ? datas : "Pas de favoris pour le moment"}
           </>
         )}
-      </Margin>
+      </div>
       <TabBarBottom />
+      
     </>
   );
 };

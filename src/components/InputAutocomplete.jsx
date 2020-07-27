@@ -9,6 +9,7 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
 
+
   useEffect(() => {
     handleValue();
   }, []);
@@ -69,6 +70,7 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
 
   return (
     <>
+    <div>
       <Field
         type="search"
         placeholder={placeholder}
@@ -84,7 +86,7 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
             const name = selectedInput[keyName].name;
             const googlePlaceId = selectedInput[keyName].googlePlaceId;
             return (
-              <div style={{ marginTop: 15 }} key={i}>
+              <div className="containerAutoComplete"  key={i}>
                 <Themes.Text
                   data-name={name}
                   data-google-place-id={googlePlaceId}
@@ -97,6 +99,7 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
             );
           })
         : null}
+        </div>
     </>
   );
 };

@@ -67,6 +67,7 @@ input[type="checkbox"].checkbox + label {
   cursor: pointer;
   position: absolute;
   left: 2px;
+  top: 15px;
   background: #fff;
   opacity: 0.9;
   background-color: #000000;
@@ -98,3 +99,28 @@ button {
   margin-left: .5rem;
 }
 
+
+.logout-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+.containerFavs{
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly !important;
+  height: 70%;
+}
+
+.containerAutoComplete{
+  overflow: hidden;
+}
+
+.btn-searchpage{
+  position: absolute;
+  bottom: 75px;
+  width: 90% !important;
+}

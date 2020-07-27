@@ -144,7 +144,7 @@ const ButtonProfile = styled(Link)`
   color: ${textColor};
   border-radius: 5px;
   padding: 13px 28px;
-  margin: 10px 0;
+  margin: 8px 0;
   width: 90%;
   text-align: left;
   text-decoration: none;
@@ -248,6 +248,12 @@ const Text = styled.p`
   margin: 15px 0;
 `;
 
+const TextCO2 = styled.p`
+  color: ${textColor};
+  font-size: 12px;
+  margin: 15px 0;
+`;
+
 const Error = styled.p`
   color: red;
 `;
@@ -336,6 +342,7 @@ const CardVTC = styled.div`
   background-color: ${vtc};
   margin: 20px -20px -80px -20px;
   padding: 20px 20px 0 20px;
+  overflow: auto;
 `;
 
 const Line = styled.div`
@@ -472,6 +479,7 @@ export default {
   TextLink,
   Title,
   Text,
+  TextCO2,
   Error,
   Succes,
   TopTextHeader,

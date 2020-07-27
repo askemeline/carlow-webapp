@@ -15,7 +15,7 @@ const ButtonSearch = ({ name, ...otherProps }) => {
       <Themes.ButtonSearch name={name} {...otherProps}>
         <Flex>
           <Themes.Text style={{ fontWeight: 400 }}>
-            Votre destintaion
+            Votre destination
           </Themes.Text>
           <Flex>
             <Themes.Line />

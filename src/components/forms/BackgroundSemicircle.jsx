@@ -28,11 +28,13 @@ const BackgroundSemicircle = ({
   return (
     <Themes.BackgroundColorHeader>
       <Flex>
+        <div className="logout-container">
         {topText === "Déconnexion" ? (
           <Themes.TopTextHeader onClick={handleLogOut}>
             {topText}
           </Themes.TopTextHeader>
         ) : null}
+        </div>
 
         <Themes.TextHeader style={{ color: color }}>{text}</Themes.TextHeader>
         <Themes.SubTextHeader style={{ color: color }}>
