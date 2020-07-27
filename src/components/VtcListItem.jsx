@@ -26,14 +26,14 @@ const VtcListItem = ({ filter, sortable }) => {
   const location = useLocation();
   const rideComparison = location.state.rideComparison;
   let rides = rideComparison.rides;
-  sortable = "temps";
+
   if (sortable === "prix") {
     rides.sort((a, b) => {
       return a.price - b.price;
     });
   } else if (sortable === "temps") {
     rides.sort((a, b) => {
-      return a.duration - b.duration;
+      return a.timeBeforeDeparture - b.timeBeforeDeparture;
     });
   }
   return rides.map((ride, key) => {

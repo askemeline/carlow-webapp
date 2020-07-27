@@ -10,8 +10,8 @@ import RenderSortableVtc from "../components/RenderSortableVtc.jsx";
 import VtcListItem from "../components/VtcListItem.jsx";
 
 const FilterPage = () => {
-  const [filterData, setFilterData] = useState("");
-  const [sortableData, setSortableData] = useState("");
+  const [filterData, setFilterData] = useState("classique");
+  const [sortableData, setSortableData] = useState("prix");
 
   const handleFilter = (val) => {
     setFilterData(val);
