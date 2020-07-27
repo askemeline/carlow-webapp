@@ -11,14 +11,8 @@ import marcel from "../asset/marcel.png";
 import allocab from "../asset/allocab.png";
 
 const VtcListItem = ({ filter, sortable }) => {
-  let activeFilter = "classique";
-  let activeSort = "prix";
-
-  //filter value onClick des boutons ex: classique, berline, van, etc
-  //sortable value onClick des boutons ex: prix, temps
-
-  console.log(filter);
-  const location = useLocation();
+  // let activeFilter = "classique";
+  // let activeSort = "prix";
 
   const objVtc = [
     { name: "heetch", img: heetch },
@@ -29,22 +23,23 @@ const VtcListItem = ({ filter, sortable }) => {
     { name: "marcel", img: marcel },
   ];
 
+  const location = useLocation();
   const rideComparison = location.state.rideComparison;
   let rides = rideComparison.rides;
-  activeSort = "temps";
-  if (activeSort === "prix") {
+  sortable = "temps";
+  if (sortable === "prix") {
     rides.sort((a, b) => {
       return a.price - b.price;
     });
-  } else if (activeSort === "temps") {
+  } else if (sortable === "temps") {
     rides.sort((a, b) => {
       return a.duration - b.duration;
     });
   }
   return rides.map((ride, key) => {
     if (
-      activeFilter !== "classique" &&
-      ride.Options.find((option) => option.Slug === activeFilter) === undefined
+      filter !== "classique" &&
+      ride.Options.find((option) => option.Slug === filter) === undefined
     ) {
       return false;
     }
@@ -58,10 +53,11 @@ const VtcListItem = ({ filter, sortable }) => {
           />
           <Themes.Text style={{ textTransform: "capitalize" }}>
             {ride.Vtc.Name}
-            <br></br>5 min
+            <br></br>
+            {ride.timeBeforeDeparture % 60} min
           </Themes.Text>
           <Themes.Flex>
-            <Themes.TextCO2 style={{ fontSize: "10px !important;" }}>
+            <Themes.TextCO2 style={{ fontSize: "10" }}>
               <br></br>
               <br></br>
               <img src={co2} alt="Logo" />

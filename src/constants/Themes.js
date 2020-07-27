@@ -437,6 +437,7 @@ const IconOnlyabBar = styled.div`
 
 const Center = styled.div`
   text-align: center;
+  margin-top: 40px;
 `;
 const Cards = styled.div`
   display: flex;
