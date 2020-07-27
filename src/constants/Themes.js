@@ -435,7 +435,27 @@ const IconOnlyabBar = styled.div`
   color: ${ColorIconOnlyTabBar};
 `;
 
+const Center = styled.div`
+  text-align: center;
+  margin-top: 40px;
+`;
+const Cards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: space-between;
+`;
+
+const FlexVtc = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export default {
+  Center,
+  Cards,
+  FlexVtc,
   IconOnlyabBar,
   ColorIconOnlyTabBar,
   IconHomeTabBar,
