@@ -13,13 +13,13 @@ const TabBarBottom = () => {
       {location.pathname === "/profile" ? (
         <>
           <Link to="/home">
-            <Themes.IconOnlyabBar>
+            <Themes.IconOnlyabBar className="icon">
               <IoIosHome />
             </Themes.IconOnlyabBar>
           </Link>
           <Link to="/profile" style={{ textDecoration: "none" }}>
             <Themes.FlexSetting>
-              <Themes.IconSettingTabBar>
+              <Themes.IconSettingTabBar className="icon">
                 <MdSettings />
                 <Themes.TextSettingTabBar>Réglage</Themes.TextSettingTabBar>
               </Themes.IconSettingTabBar>
@@ -30,14 +30,14 @@ const TabBarBottom = () => {
         <>
           <Link to="/home" style={{ textDecoration: "none" }}>
             <Themes.FlexHome>
-              <Themes.IconHomeTabBar>
+              <Themes.IconHomeTabBar className="icon">
                 <IoIosHome />
                 <Themes.TextHomeTabBar>Accueil</Themes.TextHomeTabBar>
               </Themes.IconHomeTabBar>
             </Themes.FlexHome>
           </Link>
           <Link to="/profile">
-            <Themes.IconOnlyabBar>
+            <Themes.IconOnlyabBar className="icon">
               <MdSettings />
             </Themes.IconOnlyabBar>
           </Link>

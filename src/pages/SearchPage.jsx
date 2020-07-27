@@ -69,7 +69,7 @@ const Search = ({ history }) => {
           />
         </form>
       </Margin>
-      <TabBarBottom text="home" />
+      <TabBarBottom />
     </>
   );
 };

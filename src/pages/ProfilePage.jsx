@@ -19,7 +19,7 @@ const ProfilePage = () => {
         <ButtonProfileDisabled text="Position" />
         <DarkThemeToggle />
       </Margin>
-      <TabBarBottom text="profile" />
+      <TabBarBottom />
     </>
   );
 };

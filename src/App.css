@@ -5,7 +5,7 @@
   outline: none;
 }
 
-div>svg {
+.icon svg {
   width: 2em;
   height: 2em;
 }

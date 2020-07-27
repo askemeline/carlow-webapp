@@ -55,7 +55,7 @@ const FavorisPage = () => {
           </>
         )}
       </Margin>
-      <TabBarBottom text="home" />
+      <TabBarBottom />
     </>
   );
 };
