@@ -68,9 +68,7 @@ const ProfilePage = () => {
           </div>
         ) : (
           <>
-            <Themes.Title>
-              Modifier ou mettez à jour vos informations
-            </Themes.Title>
+            <Themes.Title>Modifier vos informations</Themes.Title>
             <form onSubmit={handleSubmit}>
               <Field
                 name="email"
@@ -106,7 +104,7 @@ const ProfilePage = () => {
           </>
         )}
       </Margin>
-      <TabBarBottom text="profile" />
+      <TabBarBottom />
     </>
   );
 };

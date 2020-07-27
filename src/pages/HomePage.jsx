@@ -39,7 +39,7 @@ const HomePage = ({ history }) => {
         />
         <FavorisCard favoris={favs} />
       </Margin>
-      <TabBarBottom text="home" />
+      <TabBarBottom />
     </>
   );
 };

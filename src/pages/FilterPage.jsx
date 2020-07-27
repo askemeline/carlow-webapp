@@ -112,7 +112,7 @@ const loadVtc = (rideComparison) => {
             alt="Logo"
           />
           <Themes.Text style={{ textTransform: "capitalize" }}>
-            {ride.Vtc.name}
+            {ride.Vtc.Name}
           </Themes.Text>
           <Themes.Flex>
             <Themes.Text>Co2 {ride.emission / 10000}%</Themes.Text>
@@ -140,7 +140,7 @@ const FilterPage = () => {
         <Card>{renderSortable}</Card>
         <Themes.CardVTC>{loadVtc(rideComparison)}</Themes.CardVTC>
       </Margin>
-      <TabBarBottom text="home" />
+      <TabBarBottom />
     </>
   );
 };
