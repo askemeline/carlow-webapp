@@ -17,14 +17,11 @@ const ModalVtc = ({ isShowing, hide, rideName }) => {
   const getUrl = () => {
     let url = `https://www.${rideName}.com/`;
     if (rideName === "Marcel") {
-      console.log("marcel");
       return <a href="https://www.marcel.cab/">Allez-y</a>;
     } else {
-      console.log("pas marcel");
       return <Button href={url}>Allez-y</Button>;
     }
   };
-  console.log("hey");
 
   return (
     <>

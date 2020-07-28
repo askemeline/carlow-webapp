@@ -17,7 +17,6 @@ const Card = styled.div`
 
 const handleSubmit = async (event) => {
   event.preventDefault();
-  console.log("submit");
 };
 
 const Search = ({ history }) => {
@@ -36,9 +35,7 @@ const Search = ({ history }) => {
         pathname: "/filter",
         state: { rideComparison: response },
       });
-    } catch (e) {
-      console.log(`Axios request failed: ${e}`);
-    }
+    } catch (e) {}
   };
   return (
     <>

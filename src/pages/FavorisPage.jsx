@@ -23,8 +23,6 @@ const FavorisPage = () => {
     );
     setData(response);
     setIsLoading(false);
-
-    console.log(response);
   };
 
   const datas = Object.entries(data)
@@ -32,7 +30,7 @@ const FavorisPage = () => {
     .map(([key, value]) => {
       return (
         <div key={key}>
-          <p style={{textTransform : "capitalize"}}>
+          <p style={{ textTransform: "capitalize" }}>
             {value.name}: {value.place.name}
           </p>
           <br />
@@ -56,7 +54,6 @@ const FavorisPage = () => {
         )}
       </div>
       <TabBarBottom />
-      
     </>
   );
 };

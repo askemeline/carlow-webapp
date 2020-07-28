@@ -39,7 +39,6 @@ const RegisterPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("user", user);
     try {
       await axios.post("https://api-carlow.herokuapp.com/api/users", user);
       setSuccess(
@@ -49,7 +48,6 @@ const RegisterPage = () => {
       history.push("/login");
     } catch (e) {
       setError("Il semblerait que cet email existe déjà");
-      console.log(`Axios request failed: ${e}`);
     }
   };
 

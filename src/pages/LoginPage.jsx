@@ -40,13 +40,11 @@ const LoginPage = ({ history }) => {
     try {
       await AuthAPI.authenticate(credentials);
       setIsLoading(true);
-      console.log("await");
       setIsAuthenticated(true);
       history.replace("/home");
     } catch (e) {
       setIsLoading(false);
       setError("Indentifiant invalide");
-      console.log(`Axios request failed: ${e}`);
     }
   };
 

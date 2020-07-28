@@ -39,8 +39,6 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     AuthAPI.isAuthenticated()
   );
-  console.log(isAuthenticated);
-  console.log("status", isAuthenticated);
 
   const isMobile = useMediaQuery({ maxDeviceWidth: 760 });
   return (
