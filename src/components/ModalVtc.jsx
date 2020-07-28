@@ -1,25 +1,16 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 
 import Themes from "../constants/Themes.js";
-
-const Text = styled.p`
-  color: #000000;
-  font-size: 17px;
-  /* padding-bottom: 20px; */
-`;
-
-const Button = styled.button`
-  width: 100%;
-`;
 
 const ModalVtc = ({ isShowing, hide, rideName }) => {
   const getUrl = () => {
     let url = `https://www.${rideName}.com/`;
     if (rideName === "Marcel") {
-      return <a href="https://www.marcel.cab/">Allez-y</a>;
+      return (
+        <Themes.Redirect to="https://www.marcel.cab/">Allez-y</Themes.Redirect>
+      );
     } else {
-      return <Button href={url}>Allez-y</Button>;
+      return <Themes.Redirect to={url}>Allez-y</Themes.Redirect>;
     }
   };
 
@@ -36,9 +27,13 @@ const ModalVtc = ({ isShowing, hide, rideName }) => {
           >
             <Themes.ModalVtc>
               <Themes.ModalHeader />
-              <Text>Aller sur le site {rideName} pour commander ?</Text>
-              <Themes.Flex>
-                <Button onClick={hide}>Non merci</Button>
+              <Themes.Text>
+                Aller sur le site {rideName} pour commander ?
+              </Themes.Text>
+              <Themes.Flex style={{ justifyContent: "space-between" }}>
+                <Themes.ButtonClose onClick={hide}>
+                  Non merci
+                </Themes.ButtonClose>
                 {getUrl()}
               </Themes.Flex>
             </Themes.ModalVtc>

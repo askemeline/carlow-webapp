@@ -9,6 +9,11 @@ import co2 from "../asset/co2.png";
 import marcel from "../asset/marcel.png";
 import allocab from "../asset/allocab.png";
 import useModal from "./useModal";
+import styled from "styled-components";
+
+const Div = styled.div`
+  font-weight: 400;
+`;
 
 const objVtc = [
   { name: "heetch", img: heetch },
@@ -21,7 +26,7 @@ const objVtc = [
 const VtcItem = ({ ride }) => {
   const { isShowing, toggle } = useModal();
   return (
-    <div onClick={toggle}>
+    <Div onClick={toggle}>
       <Themes.FlexVtc>
         <Themes.Flex style={{ margin: 20 }}>
           <img
@@ -50,7 +55,7 @@ const VtcItem = ({ ride }) => {
           <Themes.Text>{ride.price / 100}€</Themes.Text>
         </Themes.Flex>
       </Themes.FlexVtc>
-    </div>
+    </Div>
   );
 };
 

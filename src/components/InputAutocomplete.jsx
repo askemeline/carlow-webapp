@@ -61,7 +61,7 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
 
   return (
     <>
-      <div>
+      <div {...otherProps}>
         <Field
           type="search"
           placeholder={placeholder}
@@ -70,7 +70,6 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
           required
           data-id={placeId}
           value={value}
-          {...otherProps}
         />
         {selectedInput !== null
           ? Object.keys(selectedInput).map((keyName, i) => {

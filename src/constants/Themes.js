@@ -89,8 +89,14 @@ const ColorIconSettingTabBar = theme("theme", {
   light: "#337F86",
   dark: "#FFFFFF",
 });
+
 const ColorIconOnlyTabBar = theme("theme", {
   light: "#022A2F",
+  dark: "#FFFFFF",
+});
+
+const colorButtonRedirectVtc = theme("theme", {
+  light: "#44565c",
   dark: "#FFFFFF",
 });
 
@@ -324,11 +330,11 @@ const Modal = styled.div`
 const ModalVtc = styled.div`
   z-index: 100;
   background: ${backgroundColor};
+  position: fixed;
   border-radius: 3px;
-  margin: auto;
-  width: 80%;
+  padding: 2rem;
+  margin: 20px;
   top: 20%;
-  left: 50%;
 `;
 
 const ModalHeader = styled.div`
@@ -462,7 +468,27 @@ const FlexVtc = styled.div`
   align-items: center;
 `;
 
+const ButtonClose = styled.button`
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  padding: inherit;
+  font-weight: 500;
+  padding-top: 40px;
+  color: #aa696b;
+`;
+const Redirect = styled(Link)`
+  color: ${colorButtonRedirectVtc};
+  padding-top: 40px;
+  font-weight: bold;
+`;
+
 export default {
+  colorButtonRedirectVtc,
+  ButtonClose,
+  Redirect,
   ModalVtc,
   Center,
   Cards,

@@ -39,7 +39,7 @@ const Search = ({ history }) => {
   };
   return (
     <>
-      <Margin heightProps="88%">
+      <Margin heightProps="60%">
         <HeaderButton icon="back" text="Retour" navigation="home" />
         <form onSubmit={handleSubmit}>
           <Card>
@@ -51,7 +51,6 @@ const Search = ({ history }) => {
               fav={false}
             />
             <InputAutocomplete
-              style={{ marginTop: 20 }}
               placeholder="Destination"
               data-role="end"
               className="end"

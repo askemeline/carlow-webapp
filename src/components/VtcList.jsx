@@ -27,7 +27,7 @@ const VtcList = ({ filter, sortable }) => {
 
     return (
       <div key={key}>
-        <VtcItem ride={ride} />
+        {filter === "green" ? <p>Hello</p> : <VtcItem ride={ride} />}
       </div>
     );
   });
