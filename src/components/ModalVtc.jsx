@@ -1,17 +1,29 @@
 import React from "react";
+import axios from "axios";
 
 import Themes from "../constants/Themes.js";
 
-const ModalVtc = ({ isShowing, hide, rideName }) => {
+const ModalVtc = ({ isShowing, hide, rideName, rideId }) => {
   const getUrl = () => {
     let url = `https://www.${rideName}.com/`;
     if (rideName === "Marcel") {
       return (
-        <Themes.Redirect to="https://www.marcel.cab/">Allez-y</Themes.Redirect>
+        <Themes.Redirect onClick={orderRide} to="https://www.marcel.cab/">Allez-y</Themes.Redirect>
       );
     } else {
-      return <Themes.Redirect to={url}>Allez-y</Themes.Redirect>;
+      return <Themes.Redirect onClick={orderRide} to={url}>Allez-y</Themes.Redirect>;
     }
+  };
+
+  const orderRide = async(e) => {
+    try {
+      const { data: response } = await axios.get(
+        "https://api-carlow.herokuapp.com/api/ride/order?rideId=" + rideId
+      );
+    } catch (e) {
+      console.log(e);
+    }
+    return true;
   };
 
   return (

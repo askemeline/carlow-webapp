@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import ButtonSearch from "../components/ButtonSearch.jsx";
 import TabBarBottom from "../components/TabBarBottom.jsx";
@@ -17,13 +18,28 @@ const Text = styled.p`
 const favs = ["Domicile", "Travail", "Favoris"];
 
 const HomePage = ({ history }) => {
+  const [savingPrice, setSavingPrice] = useState(0);
+
   const handleClick = () => {
     history.push("/search");
   };
+
+  const getUser = async () => {
+    try {
+      const { data: response } = await axios.get(
+        "https://api-carlow.herokuapp.com/api/users"
+      );
+      setSavingPrice(response[0].savingPrice);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  getUser();
+
   return (
     <>
       <BackgroundSemicircle
-        text="16,97 €"
+        text={savingPrice / 100 + "€"} 
         subText=" d’économie depuis Carlow !"
         color="#F3D2D3"
       />
