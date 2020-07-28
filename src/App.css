@@ -70,7 +70,7 @@ input[type="checkbox"].checkbox + label {
   cursor: pointer;
   position: absolute;
   left: 2px;
-  top: 15px;
+  top: 2.5px;
   background: #fff;
   opacity: 0.9;
   background-color: #000000;
