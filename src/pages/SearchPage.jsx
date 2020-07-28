@@ -39,7 +39,7 @@ const Search = ({ history }) => {
   };
   return (
     <>
-      <Margin heightProps="60%">
+      <Margin heightProps="88%">
         <HeaderButton icon="back" text="Retour" navigation="home" />
         <form onSubmit={handleSubmit}>
           <Card>
