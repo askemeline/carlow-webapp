@@ -13,11 +13,19 @@ const Button = styled.button`
   width: 100%;
 `;
 
-const ModalVtc = ({ isShowing, hide, ride }) => {
-  let url = `https://www.${ride}.com/`;
+const ModalVtc = ({ isShowing, hide, rideName }) => {
+  const getUrl = () => {
+    let url = `https://www.${rideName}.com/`;
+    if (rideName === "Marcel") {
+      console.log("marcel");
+      return <a href="https://www.marcel.cab/">Allez-y</a>;
+    } else {
+      console.log("pas marcel");
+      return <Button href={url}>Allez-y</Button>;
+    }
+  };
+  console.log("hey");
 
-  let element = <a href={url}>Allez-y</a>;
-  console.log(url);
   return (
     <>
       {isShowing ? (
@@ -31,10 +39,10 @@ const ModalVtc = ({ isShowing, hide, ride }) => {
           >
             <Themes.ModalVtc>
               <Themes.ModalHeader />
-              <Text>Aller sur le site {ride} pour commander ?</Text>
+              <Text>Aller sur le site {rideName} pour commander ?</Text>
               <Themes.Flex>
                 <Button onClick={hide}>Non merci</Button>
-                {element}{" "}
+                {getUrl()}
               </Themes.Flex>
             </Themes.ModalVtc>
           </Themes.ModalWrapper>

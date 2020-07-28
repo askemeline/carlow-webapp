@@ -7,7 +7,7 @@ import Themes from "../constants/Themes.js";
 
 import RenderFilterVtc from "../components/RenderFilterVtc.jsx";
 import RenderSortableVtc from "../components/RenderSortableVtc.jsx";
-import VtcListItem from "../components/VtcListItem.jsx";
+import VtcList from "../components/VtcList.jsx";
 
 const FilterPage = () => {
   const [filterData, setFilterData] = useState("classique");
@@ -34,7 +34,7 @@ const FilterPage = () => {
           <RenderSortableVtc handleSortable={handleSortable} />
         </Themes.Cards>
         <Themes.CardVTC>
-          <VtcListItem filter={filterData} sortable={sortableData} />
+          <VtcList filter={filterData} sortable={sortableData} />
         </Themes.CardVTC>
       </Margin>
       <TabBarBottom />

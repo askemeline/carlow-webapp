@@ -61,13 +61,13 @@ const Search = ({ history }) => {
               fav={false}
             />
           </Card>
-         
         </form>
-        <Button className="btn-searchpage"
-            text="Valider"
-            type="submit"
-            onClick={handleClick}
-          />
+        <Button
+          className="btn-searchpage"
+          text="Valider"
+          type="submit"
+          onClick={handleClick}
+        />
       </Margin>
       <TabBarBottom />
     </>
