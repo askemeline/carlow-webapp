@@ -11,6 +11,7 @@ import marcel from "../asset/marcel.png";
 import allocab from "../asset/allocab.png";
 import useModal from "./useModal.jsx";
 import ModalVtc from "./ModalVtc.jsx";
+import VtcItem from "./VtcItem.jsx";
 
 const VtcListItem = ({ filter, sortable }) => {
   // let activeFilter = "classique";
@@ -47,8 +48,16 @@ const VtcListItem = ({ filter, sortable }) => {
       return false;
     }
     const rideName = ride.Vtc.Name;
+    console.log(rideName);
     return (
-      <button onClick={toggle} rideName={rideName}>
+      <div>
+        <VtcItem rides={rides} />
+      </div>
+    );
+  });
+};
+{
+  /* <button onClick={toggle}>
         <Themes.FlexVtc key={key} style={{ backgroundColor: "red" }}>
           <Themes.Flex style={{ margin: 20 }}>
             <img
@@ -74,8 +83,6 @@ const VtcListItem = ({ filter, sortable }) => {
           </Themes.Flex>
         </Themes.FlexVtc>
       </button>
-    );
-  });
-};
-
+      */
+}
 export default VtcListItem;

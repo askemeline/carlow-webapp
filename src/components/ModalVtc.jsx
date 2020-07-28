@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Button from "./forms/Button.jsx";
 import Themes from "../constants/Themes.js";
 
 const Text = styled.p`
-  color: #df5f64;
-  font-size: 24px;
-  padding-bottom: 20px;
+  color: #000000;
+  font-size: 17px;
+  /* padding-bottom: 20px; */
 `;
 
-const ModalVtc = ({ isShowing, hide, rideName }) => {
-  const [hasError, setHasError] = useState(false);
+const Button = styled.button`
+  width: 100%;
+`;
 
+const ModalVtc = ({ isShowing, hide, ride }) => {
+  let url = `https://www.${ride}.com/`;
+
+  let element = <a href={url}>Allez-y</a>;
+  console.log(url);
   return (
     <>
       {isShowing ? (
@@ -24,18 +29,14 @@ const ModalVtc = ({ isShowing, hide, rideName }) => {
             tabIndex={-1}
             role="dialog"
           >
-            <Themes.Modal>
+            <Themes.ModalVtc>
               <Themes.ModalHeader />
-              <Text>
-                Aller sur le site {rideName.toLowerCase()} pour commander ?
-              </Text>
-              <Button
-                text="Enregister"
-                type="submit"
-                onClick={hide}
-                style={{ marginTop: 100 }}
-              />
-            </Themes.Modal>
+              <Text>Aller sur le site {ride} pour commander ?</Text>
+              <Themes.Flex>
+                <Button onClick={hide}>Non merci</Button>
+                {element}{" "}
+              </Themes.Flex>
+            </Themes.ModalVtc>
           </Themes.ModalWrapper>
         </>
       ) : null}

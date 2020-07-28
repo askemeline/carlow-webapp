@@ -321,6 +321,16 @@ const Modal = styled.div`
   bottom: 0;
 `;
 
+const ModalVtc = styled.div`
+  z-index: 100;
+  background: ${backgroundColor};
+  border-radius: 3px;
+  margin: auto;
+  width: 80%;
+  top: 20%;
+  left: 50%;
+`;
+
 const ModalHeader = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -453,6 +463,7 @@ const FlexVtc = styled.div`
 `;
 
 export default {
+  ModalVtc,
   Center,
   Cards,
   FlexVtc,
