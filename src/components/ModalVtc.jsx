@@ -8,14 +8,20 @@ const ModalVtc = ({ isShowing, hide, rideName, rideId }) => {
     let url = `https://www.${rideName}.com/`;
     if (rideName === "Marcel") {
       return (
-        <Themes.Redirect onClick={orderRide} to="https://www.marcel.cab/">Allez-y</Themes.Redirect>
+        <Themes.Redirect onClick={orderRide} href="https://www.marcel.cab/">
+          Allez-y
+        </Themes.Redirect>
       );
     } else {
-      return <Themes.Redirect onClick={orderRide} to={url}>Allez-y</Themes.Redirect>;
+      return (
+        <Themes.Redirect onClick={orderRide} href={url}>
+          Allez-y
+        </Themes.Redirect>
+      );
     }
   };
 
-  const orderRide = async(e) => {
+  const orderRide = async (e) => {
     try {
       const { data: response } = await axios.get(
         "https://api-carlow.herokuapp.com/api/ride/order?rideId=" + rideId

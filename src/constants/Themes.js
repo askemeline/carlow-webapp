@@ -325,6 +325,8 @@ const Modal = styled.div`
   width: 100%;
   padding: 2rem;
   bottom: 0;
+  overflow: auto;
+  height: 400px;
 `;
 
 const ModalVtc = styled.div`
@@ -335,8 +337,6 @@ const ModalVtc = styled.div`
   padding: 2rem;
   margin: 20px;
   top: 20%;
-  overflow: auto;
-  height: 400px;
 `;
 
 const ModalHeader = styled.div`
@@ -481,7 +481,7 @@ const ButtonClose = styled.button`
   padding-top: 40px;
   color: #aa696b;
 `;
-const Redirect = styled(Link)`
+const Redirect = styled.a`
   color: ${colorButtonRedirectVtc};
   padding-top: 40px;
   font-weight: bold;
