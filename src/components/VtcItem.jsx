@@ -38,6 +38,7 @@ const VtcItem = ({ ride }) => {
             isShowing={isShowing}
             hide={toggle}
             rideName={ride.Vtc.Name}
+            rideId={ride.id}
           />
           <Themes.Text style={{ textTransform: "capitalize" }}>
             {ride.Vtc.Name}
