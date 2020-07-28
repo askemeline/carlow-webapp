@@ -335,6 +335,8 @@ const ModalVtc = styled.div`
   padding: 2rem;
   margin: 20px;
   top: 20%;
+  overflow: auto;
+  height: 400px;
 `;
 
 const ModalHeader = styled.div`
