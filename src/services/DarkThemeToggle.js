@@ -12,7 +12,6 @@ const DarkThemeToggle = ({ ...otherProps }) => {
     <Themes.ToggleDarkMode type="text" {...otherProps}>
       <div className="toggle-container">
         <p>Activer le theme sombre</p>
-        <span>☀︎</span>
         <span className="toggle">
           <input
             id="checkbox"

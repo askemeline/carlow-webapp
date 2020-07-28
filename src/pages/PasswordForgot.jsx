@@ -23,7 +23,6 @@ const PasswordForgot = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(email);
 
     try {
       await axios.get(
@@ -37,8 +36,6 @@ const PasswordForgot = () => {
       history.push("/login");
     } catch (e) {
       setErrors("Oops cet email n'existe pas");
-
-      console.log(`Axios request failed: ${e}`);
     }
   };
 

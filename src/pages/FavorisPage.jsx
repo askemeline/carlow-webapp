@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Margin from "../components/forms/Margin.jsx";
 import HeaderButton from "../components/forms/HeaderButton.jsx";
 import TabBarBottom from "../components/TabBarBottom.jsx";
 import Themes from "../constants/Themes.js";
@@ -23,8 +22,6 @@ const FavorisPage = () => {
     );
     setData(response);
     setIsLoading(false);
-
-    console.log(response);
   };
 
   const datas = Object.entries(data)
@@ -32,7 +29,7 @@ const FavorisPage = () => {
     .map(([key, value]) => {
       return (
         <div key={key}>
-          <p style={{textTransform : "capitalize"}}>
+          <p style={{ textTransform: "capitalize" }}>
             {value.name}: {value.place.name}
           </p>
           <br />
@@ -56,7 +53,6 @@ const FavorisPage = () => {
         )}
       </div>
       <TabBarBottom />
-      
     </>
   );
 };

@@ -9,7 +9,6 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
   const [selectedInput, setSelectedInput] = useState(null);
   const [placeId, setPlaceId] = useState(null);
 
-
   useEffect(() => {
     handleValue();
   }, []);
@@ -22,9 +21,7 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
         "https://api-carlow.herokuapp.com/api/place/autocomplete/" + value
       );
       setSelectedInput(response);
-    } catch (e) {
-      console.log(`Axios request failed: ${e}`);
-    }
+    } catch (e) {}
   };
 
   const handleValue = async (e) => {
@@ -45,10 +42,7 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
           googlePlaceId: val.googlePlaceId,
           name: val.name,
         };
-        console.log(val);
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     } else {
       url = "https://api-carlow.herokuapp.com/api/places";
     }
@@ -61,45 +55,41 @@ const InputAutocomplete = ({ placeholder, id, fav = false, ...otherProps }) => {
       } else {
         setValue(val.placeName);
       }
-      console.log(response);
-    } catch (e) {
-      console.log(`Axios request failed: ${e}`);
-    }
+    } catch (e) {}
     setSelectedInput(null);
   };
 
   return (
     <>
-    <div>
-      <Field
-        type="search"
-        placeholder={placeholder}
-        onChange={handleChange}
-        id="search"
-        required
-        data-id={placeId}
-        value={value}
-        {...otherProps}
-      />
-      {selectedInput !== null
-        ? Object.keys(selectedInput).map((keyName, i) => {
-            const name = selectedInput[keyName].name;
-            const googlePlaceId = selectedInput[keyName].googlePlaceId;
-            return (
-              <div className="containerAutoComplete"  key={i}>
-                <Themes.Text
-                  data-name={name}
-                  data-google-place-id={googlePlaceId}
-                  onClick={handleValue}
-                >
-                  {name}
-                </Themes.Text>
-                <hr />
-              </div>
-            );
-          })
-        : null}
-        </div>
+      <div {...otherProps}>
+        <Field
+          type="search"
+          placeholder={placeholder}
+          onChange={handleChange}
+          id="search"
+          required
+          data-id={placeId}
+          value={value}
+        />
+        {selectedInput !== null
+          ? Object.keys(selectedInput).map((keyName, i) => {
+              const name = selectedInput[keyName].name;
+              const googlePlaceId = selectedInput[keyName].googlePlaceId;
+              return (
+                <div className="containerAutoComplete" key={i}>
+                  <Themes.Text
+                    data-name={name}
+                    data-google-place-id={googlePlaceId}
+                    onClick={handleValue}
+                  >
+                    {name}
+                  </Themes.Text>
+                  <hr />
+                </div>
+              );
+            })
+          : null}
+      </div>
     </>
   );
 };

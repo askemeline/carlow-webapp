@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import AuthAPI from "../../services/authAPI";
 import { useHistory } from "react-router-dom";
+
 import AuthContext from "../../context/AuthContext.js";
-import Themes from "../../constants/Themes";
+import Themes from "../../constants/Themes.js";
 
 const Flex = styled.div`
   display: flex;
@@ -29,11 +30,11 @@ const BackgroundSemicircle = ({
     <Themes.BackgroundColorHeader>
       <Flex>
         <div className="logout-container">
-        {topText === "Déconnexion" ? (
-          <Themes.TopTextHeader onClick={handleLogOut}>
-            {topText}
-          </Themes.TopTextHeader>
-        ) : null}
+          {topText === "Déconnexion" ? (
+            <Themes.TopTextHeader onClick={handleLogOut}>
+              {topText}
+            </Themes.TopTextHeader>
+          ) : null}
         </div>
 
         <Themes.TextHeader style={{ color: color }}>{text}</Themes.TextHeader>

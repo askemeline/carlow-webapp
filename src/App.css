@@ -4,6 +4,9 @@
   padding: 0;
   outline: none;
 }
+a:hover {
+  text-decoration: none;
+ }
 
 .icon svg {
   width: 2em;

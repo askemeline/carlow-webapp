@@ -9,7 +9,6 @@ import jwt_decode from "jwt-decode";
 function logout() {
   window.localStorage.removeItem("authToken");
   delete axios.defaults.headers["Authorization"];
-  console.log("logout!");
 }
 
 /**

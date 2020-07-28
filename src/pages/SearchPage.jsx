@@ -17,7 +17,6 @@ const Card = styled.div`
 
 const handleSubmit = async (event) => {
   event.preventDefault();
-  console.log("submit");
 };
 
 const Search = ({ history }) => {
@@ -36,9 +35,7 @@ const Search = ({ history }) => {
         pathname: "/filter",
         state: { rideComparison: response },
       });
-    } catch (e) {
-      console.log(`Axios request failed: ${e}`);
-    }
+    } catch (e) {}
   };
   return (
     <>
@@ -54,20 +51,19 @@ const Search = ({ history }) => {
               fav={false}
             />
             <InputAutocomplete
-              style={{ marginTop: 20 }}
               placeholder="Destination"
               data-role="end"
               className="end"
               fav={false}
             />
           </Card>
-         
         </form>
-        <Button className="btn-searchpage"
-            text="Valider"
-            type="submit"
-            onClick={handleClick}
-          />
+        <Button
+          className="btn-searchpage"
+          text="Valider"
+          type="submit"
+          onClick={handleClick}
+        />
       </Margin>
       <TabBarBottom />
     </>
