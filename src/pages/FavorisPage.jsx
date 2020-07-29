@@ -25,7 +25,7 @@ const FavorisPage = () => {
   };
 
   const datas = Object.entries(data)
-    .filter(([key]) => data[key] !== "false" && key !== "domicile")
+    .filter(([key]) => data[key].name !== "false")
     .map(([key, value]) => {
       return (
         <div key={key}>
